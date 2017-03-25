@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import { ModalController } from 'ionic-angular';
+import {TripsPage} from '../trips/trips';
 import template from './map.html';
 import {
     GoogleMap,
@@ -16,7 +18,7 @@ import {
     template
 })
 export class MapPage {
-    constructor() {
+    constructor(public modalCtrl: ModalController) {
 
     }
 
@@ -29,9 +31,9 @@ export class MapPage {
 
         let map = new GoogleMap(element);
 
-        //ymap.setCompassEnabled();
-
         map.one(GoogleMapsEvent.MAP_READY).then(() => {
+            map.setCompassEnabled(true);
+
             Meteor.users.find({}).observeChanges({
                 changed(id, fields) {
                     console.log(id, fields);
@@ -42,7 +44,8 @@ export class MapPage {
         });
     }
 
-    fabPlusAction() {
-        console.log('Sapristi !');
-    }
+	fabPlusAction() {
+		let modal = this.modalCtrl.create(TripsPage);
+		modal.present();
+	}
 }
