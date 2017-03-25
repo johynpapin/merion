@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import template from './introduction.html';
+import {NavController} from "ionic-angular";
+import {RegisterPage} from "../register/register";
 
 @Component({
     selector: 'introduction-page',
@@ -23,6 +25,10 @@ export class IntroductionPage {
             image: "ica-slidebox-img-3.png",
         }
     ];
-    constructor() {
+    constructor(private navCtrl: NavController) {
+    }
+
+    register() {
+        this.navCtrl.push(RegisterPage);
     }
 }

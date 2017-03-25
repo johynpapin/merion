@@ -7,6 +7,7 @@ import {MyApp} from './app.component';
 import {ProfilePage} from "../pages/profile/profile";
 import {SettingsPage} from "../pages/settings/settings";
 import {ChatPage} from "../pages/chat/chat";
+import {RegisterPage} from "../pages/register/register";
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import {ChatPage} from "../pages/chat/chat";
         FriendsPage,
         ProfilePage,
         SettingsPage,
-        ChatPage
+        ChatPage,
+        RegisterPage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
@@ -29,7 +31,8 @@ import {ChatPage} from "../pages/chat/chat";
         FriendsPage,
         ProfilePage,
         SettingsPage,
-        ChatPage
+        ChatPage,
+        RegisterPage
     ],
     providers: [
         {provide: ErrorHandler, useClass: IonicErrorHandler}
