@@ -42,7 +42,7 @@ import {MapPage} from "../pages/map/map";
         ChatPage,
         RegisterPage,
         TripsPage,
-        MapPages
+        MapPage
     ],
     providers: [
         {provide: ErrorHandler, useClass: IonicErrorHandler}
