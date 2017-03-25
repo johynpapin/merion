@@ -11,6 +11,7 @@ import {ChatPage} from "../pages/chat/chat";
 import {TripsPage} from "../pages/trips/trips";
 import {Meteor} from "meteor/meteor";
 import {MapPage} from "../pages/map/map";
+import {EditProfilePage} from "../pages/edit-profile/edit-profile";
 
 @Component({
     template
@@ -38,7 +39,8 @@ export class MyApp {
             {title: 'Réglages', component: SettingsPage},
             {title: 'Chat', component: ChatPage},
             {title: 'Trajets', component: TripsPage},
-            {title: 'Carte', component: MapPage}
+            {title: 'Carte', component: MapPage},
+            {title: 'Éditer le profil', component: EditProfilePage}
         ];
     }
 
