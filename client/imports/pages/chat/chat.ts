@@ -1,13 +1,11 @@
-import {Component} from '@angular/core';
-import {ActionSheetController} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
 import template from './chat.html';
 
 @Component({
-    selector: 'chat-page',
-    template
+  selector: 'chat-page',
+  template
 })
 export class ChatPage {
-    constructor(public actionSheetCtrl: ActionSheetController) {
+    constructor() {
     }
 }
-
