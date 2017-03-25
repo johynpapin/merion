@@ -31,9 +31,9 @@ export class MapPage {
 
         let map = new GoogleMap(element);
 
-        //ymap.setCompassEnabled();
-
         map.one(GoogleMapsEvent.MAP_READY).then(() => {
+            map.setCompassEnabled(true);
+
             Meteor.users.find({}).observeChanges({
                 changed(id, fields) {
                     console.log(id, fields);
