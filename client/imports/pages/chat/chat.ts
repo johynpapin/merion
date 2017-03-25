@@ -5,7 +5,7 @@ import template from './chat.html';
 @Component({
     template
 })
-export class FriendsPage {
+export class ChatPage {
     constructor(public actionSheetCtrl: ActionSheetController) {
     }
 }

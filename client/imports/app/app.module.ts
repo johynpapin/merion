@@ -5,6 +5,8 @@ import {IntroductionPage} from "../pages/introduction/introduction";
 import {FriendsPage} from "../pages/friends/friends";
 import {MyApp} from './app.component';
 import {ProfilePage} from "../pages/profile/profile";
+import {SettingsPage} from "../pages/settings/settings";
+import {ChatPage} from "../pages/chat/chat";
 
 @NgModule({
     declarations: [
@@ -12,7 +14,9 @@ import {ProfilePage} from "../pages/profile/profile";
         HomePage,
         IntroductionPage,
         FriendsPage,
-        ProfilePage
+        ProfilePage,
+        SettingsPage,
+        ChatPage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
@@ -23,7 +27,9 @@ import {ProfilePage} from "../pages/profile/profile";
         HomePage,
         IntroductionPage,
         FriendsPage,
-        ProfilePage
+        ProfilePage,
+        SettingsPage,
+        ChatPage
     ],
     providers: [
         {provide: ErrorHandler, useClass: IonicErrorHandler}
