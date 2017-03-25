@@ -1,9 +1,9 @@
 map-page {
-	#map {
+	div#map {
 		z-index: 0;
 	}
 
 	ion-button{
-		z-index: 10;
+		z-index: 999;
 	}
 }
