@@ -5,6 +5,7 @@ import {HomePage} from "../pages/home/home";
 import {FriendsPage} from '../pages/friends/friends';
 import {IntroductionPage} from "../pages/introduction/introduction";
 import template from "./app.html";
+import {ProfilePage} from "../pages/profile/profile";
 
 @Component({
     template
@@ -18,12 +19,13 @@ export class MyApp {
 
     constructor(public platform: Platform) {
         this.initializeApp();
-
         // used for an example of ngFor and navigation
+
         this.pages = [
             {title: 'Introduction', component: IntroductionPage},
             {title: 'Accueil', component: HomePage},
-            {title: 'Amis', component: FriendsPage}
+            {title: 'Amis', component: FriendsPage},
+            {title: 'Profil', component: ProfilePage}
         ];
 
     }

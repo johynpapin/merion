@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
-import {NavController, ActionSheetController} from 'ionic-angular';
+import {ActionSheetController} from 'ionic-angular';
 import template from './friends.html';
 
 @Component({
     template
 })
 export class FriendsPage {
-    constructor(public navCtrl: NavController, public actionSheetCtrl: ActionSheetController) {
+    constructor(public actionSheetCtrl: ActionSheetController) {
     }
 
     presentActionSheet() {

@@ -1,12 +1,9 @@
-page-profile {
-
-}
-
-.center {
-	position: relative;
-	text-align: center;
-}
-img {
-	margin: 10px auto;
-	max-width: 50%;
+profile-page {
+  ion-card-title {
+    text-align: center;
+  }
+  img {
+    margin: 10px auto;
+    max-width: 50%;
+  }
 }
