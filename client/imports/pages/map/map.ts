@@ -39,6 +39,8 @@ export class MapPage {
                     console.log(id, fields);
                 }
             })
+        }).catch(e => {
+            console.error(e);
         });
     }
 
