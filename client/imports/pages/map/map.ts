@@ -39,4 +39,8 @@ export class MapPage {
             })
         });
     }
+
+	fabPlusAction(e) {
+		console.log(e);
+	}
 }
