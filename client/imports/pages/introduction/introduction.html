@@ -8,22 +8,25 @@
 
 <ion-content padding>
     <ion-slides pager>
-
-        <ion-slide>
-            <h2>Bienvenue sur Merion !</h2>
+        <ion-slide *ngFor="let slide of slides">
+            <ion-toolbar>
+                <ion-buttons end>
+                    <button ion-button color="primary">Skip</button>
+                </ion-buttons>
+            </ion-toolbar>
+            <img [src]="slide.image" class="slide-image"/>
+            <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+            <p [innerHTML]="slide.description"></p>
         </ion-slide>
-
         <ion-slide>
-            <h2><strong>Pour utilisez Merion,</strong> vous pouvez creer un trajet en renseignant la destination,
-                l'heure et le moyen de locomotion. </h2>
-
+            <ion-toolbar>
+            </ion-toolbar>
+            <img src="irc.png" class="slide-image"/>
+            <h2 class="slide-title">Prêt à nous rejoindre ?</h2>
+            <button ion-button large clear icon-right color="primary">
+                Continuer
+                <ion-icon name="arrow-forward"></ion-icon>
+            </button>
         </ion-slide>
-
-        <ion-slide>
-            <img src="irc.png">
-            <h2>Mais vous pouvez aussi choisir de rejoindre le trajet de quelqu'un d'autre.<br> Pour cela il vous suffit
-                d'appuyer sur le trajet qui vous interesse et de valider</h2>
-        </ion-slide>
-
     </ion-slides>
 </ion-content>
