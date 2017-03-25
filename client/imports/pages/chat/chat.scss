@@ -1,7 +1,8 @@
 
 .bubbles {
-  width: 150px;
+  width: 75%;
   height: auto;
-  border: 1px solid color($colors, primary);
-  border-radius: 10px 10px 10px 10px;
+  border: 2px solid color($colors, primary);
+  border-radius: 10px;
+  background-color: color($colors, primary);
 }
