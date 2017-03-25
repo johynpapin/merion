@@ -8,6 +8,8 @@ import {ProfilePage} from "../pages/profile/profile";
 import {SettingsPage} from "../pages/settings/settings";
 import {ChatPage} from "../pages/chat/chat";
 import {RegisterPage} from "../pages/register/register";
+import {TripsPage} from "../pages/trips/trips";
+import {AgmCoreModule} from 'angular2-google-maps/core';
 
 @NgModule({
     declarations: [
@@ -18,10 +20,14 @@ import {RegisterPage} from "../pages/register/register";
         ProfilePage,
         SettingsPage,
         ChatPage,
-        RegisterPage
+        RegisterPage,
+        TripsPage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyD9RGaIOhX-w3895hwXEAa3JDO3wHmJK8Y'
+        })
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -32,7 +38,8 @@ import {RegisterPage} from "../pages/register/register";
         ProfilePage,
         SettingsPage,
         ChatPage,
-        RegisterPage
+        RegisterPage,
+        TripsPage
     ],
     providers: [
         {provide: ErrorHandler, useClass: IonicErrorHandler}
