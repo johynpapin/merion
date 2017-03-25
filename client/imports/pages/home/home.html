@@ -1,13 +1,10 @@
-<!--<ion-header>
-    <ion-navbar color="primary">
-        <ion-title>
-            Accueil
-        </ion-title>
-    </ion-navbar>
-</ion-header>-->
-
 <ion-content>
     <ion-content>
         <div #map id="map" style="height:100%;"></div>
     </ion-content>
 </ion-content>
+
+<ion-tabs>
+	<ion-tab tabIcon="person" tabTitle="Profil" [root]="tabProfile"></ion-tab>
+	<ion-tab tabIcon="people" tabTitle="Contacts" [root]="tabFriends"></ion-tab>
+</ion-tabs>

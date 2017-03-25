@@ -13,7 +13,6 @@ import {
 } from 'ionic-native';
 
 @Component({
-    selector: 'home-page',
     template
 })
 export class HomePage {
@@ -53,3 +52,12 @@ export class HomePage {
         });
     }
 }
+
+export class TabsTextPage {
+	rootPage = HomePage;
+	constructor() {
+		this.tabProfile = ProfilePage;
+		this.tabFriends = FriendsPage;
+	}
+}
+
