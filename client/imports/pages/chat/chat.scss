@@ -1,7 +1,8 @@
 #receive {
-  background-color: rgba(44, 62, 80, 0.5);
-  width: 100%;
-  height: 100%;
+  background-color: rgba(44, 62, 80, 1);
+  height: 100vh;
+  display: flex;
+  flex-direction: column-reverse;
   margin: 10px;
   border: 1px solid black;
   box-shadow: 5px 5px 5px black;
