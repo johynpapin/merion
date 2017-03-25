@@ -1,4 +1,4 @@
-ttimport {Component} from '@angular/core';
+import {Component} from '@angular/core';
 import template from './introduction.html';
 import {NavController} from "ionic-angular";
 import {RegisterPage} from "../register/register";
