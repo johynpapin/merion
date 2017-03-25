@@ -7,6 +7,7 @@ import {IntroductionPage} from "../pages/introduction/introduction";
 import template from "./app.html";
 import {ProfilePage} from "../pages/profile/profile";
 import {SettingsPage} from "../pages/settings/settings";
+import {ChatPage} from "../pages/chat/chat";
 
 @Component({
     template
@@ -27,7 +28,8 @@ export class MyApp {
             {title: 'Accueil', component: HomePage},
             {title: 'Amis', component: FriendsPage},
             {title: 'Profil', component: ProfilePage},
-            {title: 'Réglages', component: SettingsPage}
+            {title: 'Réglages', component: SettingsPage},
+            {title: 'Chat', component: ChatPage}
         ];
 
     }
