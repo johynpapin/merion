@@ -8,11 +8,14 @@
 
 <ion-content padding>
     <ion-list>
+      
         <ion-item>
-             <ion-label floating>Username</ion-label>
-             <ion-input type="text"></ion-input>
+            <ion-range min="1" max="20" [(ngModel)]="Champ d'action" color="primary">
+                <ion-label range-left>1</ion-label>
+                <ion-label range-right>20</ion-label>
+            </ion-range>
         </ion-item>
-
+      
         <ion-item>
             <ion-label>Notifications</ion-label>
             <ion-toggle value="notif" checked="true" color="primary"></ion-toggle>
