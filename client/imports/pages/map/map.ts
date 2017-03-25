@@ -33,6 +33,7 @@ export class MapPage {
 
         map.one(GoogleMapsEvent.MAP_READY).then(() => {
             map.setCompassEnabled(true);
+            map.setMyLocationEnabled(true);
 
             Meteor.users.find({}).observeChanges({
                 changed(id, fields) {
