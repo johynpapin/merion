@@ -11,6 +11,8 @@ import {
     Geolocation,
     Geoposition
 } from 'ionic-native';
+import {ProfilePage} from "../profile/profile";
+import {FriendsPage} from "../friends/friends";
 
 @Component({
     template
