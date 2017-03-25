@@ -12,6 +12,7 @@ import {
     Geoposition
 } from 'ionic-native';
 @Component({
+    selector: 'map-page',
     template
 })
 export class MapPage {

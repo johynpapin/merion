@@ -6,6 +6,7 @@ import {Validators, FormBuilder, FormGroup} from '@angular/forms';
 import {Accounts} from "meteor/accounts-base";
 
 @Component({
+    selector: 'register-page',
     template
 })
 export class RegisterPage {
