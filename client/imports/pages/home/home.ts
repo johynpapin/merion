@@ -17,6 +17,8 @@ import {
 })
 export class HomePage {
     constructor() {
+		this.tabProfile = ProfilePage;
+		this.tabFriends = FriendsPage;
     }
 
     ngAfterViewInit() {
@@ -51,13 +53,5 @@ export class HomePage {
             });
         });
     }
-}
-
-export class TabsTextPage {
-	rootPage = HomePage;
-	constructor() {
-		this.tabProfile = ProfilePage;
-		this.tabFriends = FriendsPage;
-	}
 }
 
