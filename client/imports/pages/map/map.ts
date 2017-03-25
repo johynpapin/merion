@@ -31,7 +31,9 @@ export class MapPage {
 
         //ymap.setCompassEnabled();
 
+        console.log('Coucou !«');
         map.one(GoogleMapsEvent.MAP_READY).then(() => {
+            console.log('Salut !');
             Meteor.users.find({}).observeChanges({
                 changed(id, fields) {
                     console.log(id, fields);
