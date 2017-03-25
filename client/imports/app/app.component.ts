@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {Platform, Nav} from 'ionic-angular';
-import {StatusBar, Splashscreen} from 'ionic-native';
+import {StatusBar, Splashscreen, Geolocation, GeolocationOptions, Geoposition} from 'ionic-native';
 import {HomePage} from "../pages/home/home";
 import {FriendsPage} from '../pages/friends/friends';
 import {IntroductionPage} from "../pages/introduction/introduction";
@@ -41,6 +41,14 @@ export class MyApp {
             // Here you can do any higher level native things you might need.
             StatusBar.styleDefault();
             Splashscreen.hide();
+
+            let geolocationOptions: GeolocationOptions = {
+                enableHighAccuracy: true
+            };
+
+            Geolocation.watchPosition(geolocationOptions).filter((p: any) => p.code === undefined).subscribe((position: Geoposition) => {
+                console.log(position);
+            });
         });
     }
 

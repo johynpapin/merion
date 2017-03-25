@@ -7,20 +7,20 @@
 <ion-content padding>
 	<!--<ion-slides pager color="primary">
 		<ion-slide>-->
-			<ion-list sliding="false">
+			<form [formGroup]="registerForm" (ngSubmit)="register()">
 				<ion-item>
 					<ion-label stacked>Pseudonyme</ion-label>
-					<ion-input type="text"></ion-input>
+					<ion-input type="text" formControlName="nickname"></ion-input>
 				</ion-item>
 
 				<ion-item>
 					<ion-label stacked>Prénom</ion-label>
-					<ion-input type="text"></ion-input>
+					<ion-input type="text" formControlName="firstname"></ion-input>
 				</ion-item>
 				
 				<ion-item>
 					<ion-label stacked>Nom</ion-label>
-					<ion-input type="text"></ion-input>
+					<ion-input type="text" formControlName="lastname"></ion-input>
 				</ion-item>
 
 				<!--<ion-item>
@@ -46,12 +46,12 @@
 			<ion-list>-->
 				<ion-item>
 					<ion-label stacked>E-mail</ion-label>
-					<ion-input type="email" value=""></ion-input>
+					<ion-input type="email" value="" formControlName="email"></ion-input>
 				</ion-item>
 
 				<ion-item>
 					<ion-label stacked>Choisir un mot de passe</ion-label>
-					<ion-input type="password"></ion-input>
+					<ion-input type="password" formControlName="password"></ion-input>
 				</ion-item>
 
 				<ion-item>
@@ -60,9 +60,9 @@
 				</ion-item>
 
 				<div padding>
-					<button ion-button color="primary" block (click)="register()">S’enregistrer</button>
+					<button ion-button color="primary" block type="submit" [disabled]="!registerForm.valid">S’enregistrer</button>
 				</div>
-			</ion-list>
+			</form>
 		<!--</ion-slide>
 	<ion-slides>-->
 </ion-content>
