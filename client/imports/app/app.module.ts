@@ -26,7 +26,7 @@ import {AgmCoreModule} from 'angular2-google-maps/core';
     imports: [
         IonicModule.forRoot(MyApp),
         AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyD9RGaIOhX-w3895hwXEAa3JDO3wHmJK8Y'
+            apiKey: 'AIzaSyAWoBdZHCNh5R-hB5S5ZZ2oeoYyfdDgniA'
         })
     ],
     bootstrap: [IonicApp],
