@@ -1,10 +1,7 @@
 <ion-content>
-    <ion-content>
-        <div #map id="map" style="height:100%;"></div>
-    </ion-content>
+    <div #map id="map" style="height:100%;"></div>
+    <ion-tabs>
+        <ion-tab tabIcon="person" tabTitle="Profil" [root]="tabProfile"></ion-tab>
+        <ion-tab tabIcon="people" tabTitle="Contacts" [root]="tabFriends"></ion-tab>
+    </ion-tabs>
 </ion-content>
-
-<ion-tabs>
-	<ion-tab tabIcon="person" tabTitle="Profil" [root]="tabProfile"></ion-tab>
-	<ion-tab tabIcon="people" tabTitle="Contacts" [root]="tabFriends"></ion-tab>
-</ion-tabs>

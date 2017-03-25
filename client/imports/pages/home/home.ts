@@ -18,9 +18,10 @@ import {FriendsPage} from "../friends/friends";
     template
 })
 export class HomePage {
+    tabProfile: any = ProfilePage;
+    tabFriends: any = FriendsPage;
+
     constructor() {
-		this.tabProfile = ProfilePage;
-		this.tabFriends = FriendsPage;
     }
 
     ngAfterViewInit() {
