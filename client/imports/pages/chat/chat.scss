@@ -3,7 +3,5 @@
   height: 100vh;
   display: flex;
   flex-direction: column-reverse;
-  margin: 10px;
-  border: 1px solid black;
-  box-shadow: 5px 5px 5px black;
+  border: 1px solid color($colors, primary);
 }
