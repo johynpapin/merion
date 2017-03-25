@@ -3,7 +3,7 @@ import template from './login.html';
 import {NavController, ToastController, LoadingController} from "ionic-angular";
 import {HomePage} from "../home/home";
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
-import {Accounts} from "meteor/accounts-base";
+import {Meteor} from 'meteor/meteor';
 
 @Component({
     selector: 'register-page',
@@ -27,16 +27,8 @@ export class LoginPage {
         });
 
         loading.present();
-/*
-        Accounts.loginin({
-            username: v.nickname,
-            email: v.email,
-            password: v.password,
-            profile: {
-                lastName: v.lastname,
-                firstName: v.firstname
-            }
-        }, (e) => {
+
+        Meteor.loginWithPassword(v.login, v.password, (e) => {
             loading.dismiss();
             if (e) {
                 let toast = this.toastCtrl.create({
@@ -47,13 +39,13 @@ export class LoginPage {
                 toast.present();
             } else {
                 let toast = this.toastCtrl.create({
-                    message: 'Vous êtes désormais inscrit, bienvenue !',
+                    message: 'Vous êtes désormais connecté.',
                     duration: 3000,
                     showCloseButton: true
                 });
                 toast.present();
                 this.navCtrl.setRoot(HomePage);
             }
-        });*/
+        });
     }
 }
