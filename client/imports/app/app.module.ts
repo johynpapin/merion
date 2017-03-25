@@ -10,6 +10,7 @@ import {ChatPage} from "../pages/chat/chat";
 import {RegisterPage} from "../pages/register/register";
 import {TripsPage} from "../pages/trips/trips";
 import {AgmCoreModule} from 'angular2-google-maps/core';
+import {MapPage} from "../pages/map/map";
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import {AgmCoreModule} from 'angular2-google-maps/core';
         SettingsPage,
         ChatPage,
         RegisterPage,
-        TripsPage
+        TripsPage,
+        MapPage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
@@ -39,7 +41,8 @@ import {AgmCoreModule} from 'angular2-google-maps/core';
         SettingsPage,
         ChatPage,
         RegisterPage,
-        TripsPage
+        TripsPage,
+        MapPages
     ],
     providers: [
         {provide: ErrorHandler, useClass: IonicErrorHandler}
