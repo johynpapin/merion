@@ -7,10 +7,15 @@ Meteor.startup(() => {
 
 Meteor.methods({
     'updateLocation'(location: Location) {
-        Meteor.users.update(Meteor.userId(), {
-            $set: {
-                'profile.location': location
-            }
-        });
+        if (Meteor.userId() !== null) {
+            Meteor.users.update(Meteor.userId(), {
+                $set: {
+                    'profile.location': location
+                }
+            });
+            console.log('Location updated for : ' + Meteor.userId());
+        } else {
+            console.log('A disconnected user tried to update location without being connected.');
+        }
     }
 });
