@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+ttimport {Component} from '@angular/core';
 import template from './introduction.html';
 import {NavController} from "ionic-angular";
 import {RegisterPage} from "../register/register";
@@ -10,18 +10,18 @@ import {RegisterPage} from "../register/register";
 export class IntroductionPage {
     slides = [
         {
-            title: "Welcome to the Docs!",
-            description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
+            title: "Merion",
+            description: "<strong>Merion</strong> est une application sociale permettant de partager vos petits trajets, à pied ou à vélo.",
             image: "ica-slidebox-img-1.png",
         },
         {
-            title: "What is Ionic?",
-            description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
+            title: "Comment ça marche ?",
+            description: "Inscrivez-vous, et vous verrez autour de vous les lieux vers lesquels les membres souhaitent se rendre. Cliquez, rencontrez-vous à mi-chemin, et faites le reste du trajet ensemble.",
             image: "ica-slidebox-img-2.png",
         },
         {
-            title: "What is Ionic Cloud?",
-            description: "The <b>Ionic Cloud</b> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.",
+            title: "Des rencontres",
+            description: "À mi-chemin, une notification vous indiquera un mot de passe, pour vous aider à identifier votre « contact ». Discutez, marchez ou roulez !",
             image: "ica-slidebox-img-3.png",
         }
     ];
