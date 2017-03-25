@@ -16,6 +16,7 @@ import {FriendsPage} from "../friends/friends";
 import {MapPage} from "../map/map";
 
 @Component({
+	selector: 'home-page',
     template
 })
 export class HomePage {
