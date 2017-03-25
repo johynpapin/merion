@@ -6,6 +6,7 @@ import {FriendsPage} from '../pages/friends/friends';
 import {IntroductionPage} from "../pages/introduction/introduction";
 import template from "./app.html";
 import {ProfilePage} from "../pages/profile/profile";
+import {SettingsPage} from "../pages/settings/settings";
 
 @Component({
     template
@@ -25,7 +26,8 @@ export class MyApp {
             {title: 'Introduction', component: IntroductionPage},
             {title: 'Accueil', component: HomePage},
             {title: 'Amis', component: FriendsPage},
-            {title: 'Profil', component: ProfilePage}
+            {title: 'Profil', component: ProfilePage},
+            {title: 'Réglages', component: SettingsPage}
         ];
 
     }
