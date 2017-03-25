@@ -11,7 +11,7 @@ import {MapPage} from "../map/map";
 export class HomePage {
     tabProfile: any = ProfilePage;
     tabFriends: any = FriendsPage;
-	tabHome: any = MapPage;
+	tabMap: any = MapPage;
 
     constructor() {
     }
