@@ -11,15 +11,29 @@
 
 <ion-content padding>
 
+  <ion-list class="bubbles">
+    <ion-list-header>
+      [friend name 1]
+    </ion-list-header>
+    <ion-item>Bonjour !</ion-item>
+    <ion-item>ça va ?</ion-item>
+  </ion-list>
+
+  <ion-list class="bubbles">
+    <ion-list-header>
+      [friend name 2]
+    </ion-list-header>
+    <ion-item>Oui</ion-item>
+    <ion-item>et toi ?</ion-item>
+  </ion-list>
+
 </ion-content>
 
 <ion-footer>
     <ion-item>
-        <ion-label stacked>Message</ion-label>
-        <ion-buttons end>
-            <button ion-button icon-only>
-                <ion-icon name="md-send"></ion-icon>
-            </button>
-        </ion-buttons>
+        <ion-item>
+          <ion-textarea placeholder="Message"></ion-textarea>
+          <ion-icon name="send" item-right></ion-icon>
+        </ion-item>
     </ion-item>
 </ion-footer>
