@@ -1,33 +1,27 @@
-<ion-navbar *navbar primary>
-  <ion-title>
-    {{contactName}}
-  </ion-title>
-</ion-navbar>
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Amis</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only>
+                <ion-icon name="settings"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
 
-<ion-content #content padding class="chatPage">
+<ion-content padding>
+    <ion-list>
+        <button ion-item (click)="presentActionSheet()">
+            <ion-icon name="disc" isActive="true" item-left></ion-icon>
+            Alice
+            <ion-icon name="chatboxes" item-right></ion-icon>
+        </button>
 
-  <ion-list no-lines>
-    <ion-item *ngFor="let msg of messages" >
-      <chat-bubble [message]="msg"></chat-bubble>
-    </ion-item>
-  </ion-list>
-
+        <ion-item>
+            <ion-icon name="disc" isActive="false" item-left></ion-icon>
+            Bob
+            <ion-icon name="chatboxes" item-right></ion-icon>
+        </ion-item>
+    </ion-list>
 </ion-content>
 
-<ion-footer class="chatPageFooter">
-  <ion-toolbar>
-
-    <ion-item>
-      <ion-label style="margin:0px;"></ion-label>
-      <div item-content style="width:100%;">
-        <elastic-textarea #txtChat placeholder="Type to compose" lineHeight="22"></elastic-textarea>
-      </div>
-    </ion-item>
-
-    <ion-buttons right>
-      <button style="min-width:45px;" (click)="sendMessage()">
-        <ion-icon name="send"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>
