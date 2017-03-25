@@ -1,7 +1,19 @@
 <ion-content>
+    <ion-slides>
+        <ion-slide>
+            <profile-page></profile-page>
+        </ion-slide>
+        <ion-slide>
+            <map-page></map-page>
+        </ion-slide>
+        <ion-slide>
+            <friends-page></friends-page>
+        </ion-slide>
+    </ion-slides>
+
     <ion-tabs selectedIndex="1">
-        <ion-tab tabIcon="person" tabTitle="Profil" [root]="tabProfile"></ion-tab>
-        <ion-tab tabIcon="locate" tabTitle="Carte" [root]="tabMap"></ion-tab>
-        <ion-tab tabIcon="people" tabTitle="Contacts" [root]="tabFriends"></ion-tab>
+        <ion-tab tabIcon="person" tabTitle="Profil" (click)="slides.slideTo(0)"></ion-tab>
+        <ion-tab tabIcon="locate" tabTitle="Carte" (click)="slides.slideTo(1)"></ion-tab>
+        <ion-tab tabIcon="people" tabTitle="Contacts" (click)="slides.slideTo(2)"></ion-tab>
     </ion-tabs>
 </ion-content>

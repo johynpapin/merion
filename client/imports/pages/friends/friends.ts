@@ -3,6 +3,7 @@ import {ActionSheetController} from 'ionic-angular';
 import template from './friends.html';
 
 @Component({
+    selector: 'friends-page',
     template
 })
 export class FriendsPage {
