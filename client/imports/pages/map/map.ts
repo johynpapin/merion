@@ -11,7 +11,8 @@ import {
     GoogleMapsMarker,
     GoogleMapsMapTypeId,
     Geolocation,
-    Geoposition
+    Geoposition,
+    GeolocationOptions
 } from 'ionic-native';
 @Component({
     selector: 'map-page',
@@ -32,6 +33,20 @@ export class MapPage {
         let map = new GoogleMap(element);
 
         map.one(GoogleMapsEvent.MAP_READY).then(() => {
+            let geolocationOptions: GeolocationOptions = {
+                enableHighAccuracy: true
+            };
+
+            Geolocation.watchPosition(geolocationOptions).filter((p: any) => p.code === undefined).subscribe((position: Geoposition) => {
+                console.log(position);
+                Meteor.call('updateLocation', position, (e) => {
+                    if (e) {
+                        return console.error(e);
+                    }
+                    console.log('Location updated');
+                });
+            });
+
             map.setCompassEnabled(true);
             map.setMyLocationEnabled(true);
 
