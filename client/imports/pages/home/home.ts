@@ -13,6 +13,7 @@ import {
 } from 'ionic-native';
 import {ProfilePage} from "../profile/profile";
 import {FriendsPage} from "../friends/friends";
+import {MapPage} from "../map/map";
 
 @Component({
     template
@@ -20,7 +21,7 @@ import {FriendsPage} from "../friends/friends";
 export class HomePage {
     tabProfile: any = ProfilePage;
     tabFriends: any = FriendsPage;
-	tabHome: any = HomePage;
+	tabHome: any = MapPage;
 
     constructor() {
     }
