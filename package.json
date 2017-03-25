@@ -17,6 +17,7 @@
     "@ionic/storage": "^2.0.1",
     "angular2-google-maps": "^0.17.0",
     "babel-runtime": "^6.20.0",
+    "bcrypt": "^1.0.2",
     "ionic-angular": "^2.3.0",
     "ionic-native": "^2.9.0",
     "ionicons": "^3.0.0",

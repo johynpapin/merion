@@ -33,7 +33,6 @@ export class MyApp {
             {title: 'Chat', component: ChatPage},
             {title: 'Trajets', component: TripsPage}
         ];
-
     }
 
     initializeApp() {

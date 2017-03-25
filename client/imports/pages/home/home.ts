@@ -1,19 +1,55 @@
 import {Component} from '@angular/core';
 import template from './home.html';
-
-const DEFAULT_ZOOM = 8;
-const DEFAULT_LAT = 51.678418;
-const DEFAULT_LNG = 7.809007;
+import {
+    GoogleMap,
+    GoogleMapsEvent,
+    GoogleMapsLatLng,
+    CameraPosition,
+    GoogleMapsMarkerOptions,
+    GoogleMapsMarker,
+    GoogleMapsMapTypeId,
+    Geolocation,
+    Geoposition
+} from 'ionic-native';
 
 @Component({
     selector: 'home-page',
     template
 })
 export class HomePage {
-    lat: number = DEFAULT_LAT;
-    lng: number = DEFAULT_LNG;
-    zoom: number = DEFAULT_ZOOM;
-
     constructor() {
+    }
+
+    ngAfterViewInit() {
+        this.loadMap();
+    }
+
+    loadMap() {
+        let element: HTMLElement = document.getElementById('map');
+
+        let map = new GoogleMap(element);
+
+        map.one(GoogleMapsEvent.MAP_READY).then(() => {
+            Geolocation.getCurrentPosition().then((position: Geoposition) => {
+                let latLng: GoogleMapsLatLng = new GoogleMapsLatLng(position.coords.latitude, position.coords.longitude);
+
+                let pos: CameraPosition = {
+                    target: latLng,
+                    zoom: 18,
+                    tilt: 30
+                };
+
+                map.moveCamera(pos);
+
+                let markerOptions: GoogleMapsMarkerOptions = {
+                    position: latLng,
+                    title: '42'
+                };
+
+                map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
+                    marker.showInfoWindow();
+                });
+            });
+        });
     }
 }
