@@ -15,6 +15,5 @@ export class HomePage {
     zoom: number = DEFAULT_ZOOM;
 
     constructor() {
-
     }
 }
