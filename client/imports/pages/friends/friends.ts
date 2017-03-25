@@ -20,9 +20,9 @@ export class FriendsPage {
                     }
                 },
                 {
-                    text: 'Chatter',
+                    text: 'Messages',
                     handler: () => {
-                        console.log('Chatter');
+                        console.log('Messages');
                     }
                 },
                 {
