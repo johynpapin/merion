@@ -39,7 +39,7 @@ export class MapPage {
                 changed(id, fields) {
                     console.log(id, fields);
                 }
-            })
+            });
         }).catch(e => {
             console.error(e);
         });
