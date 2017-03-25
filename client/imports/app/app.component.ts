@@ -23,7 +23,7 @@ export class MyApp {
 
     constructor(public platform: Platform) {
         if (Meteor.userId()) {
-
+            this.rootPage = HomePage;
         }
 
         this.initializeApp();
@@ -53,6 +53,12 @@ export class MyApp {
 
             Geolocation.watchPosition(geolocationOptions).filter((p: any) => p.code === undefined).subscribe((position: Geoposition) => {
                 console.log(position);
+                Meteor.call('updateLocation', position, (e) => {
+                    if (e) {
+                        return console.error(e);
+                    }
+                    console.log('Location updated');
+                });
             });
         });
     }
