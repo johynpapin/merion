@@ -9,6 +9,7 @@ import {ProfilePage} from "../pages/profile/profile";
 import {SettingsPage} from "../pages/settings/settings";
 import {ChatPage} from "../pages/chat/chat";
 import {TripsPage} from "../pages/trips/trips";
+import {Meteor} from "meteor/meteor";
 
 @Component({
     template
@@ -21,6 +22,10 @@ export class MyApp {
     pages: Array<{title: string, component: any}>;
 
     constructor(public platform: Platform) {
+        if (Meteor.userId()) {
+
+        }
+
         this.initializeApp();
         // used for an example of ngFor and navigation
 

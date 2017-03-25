@@ -3,6 +3,7 @@ import template from './register.html';
 import {NavController, ToastController, LoadingController} from "ionic-angular";
 import {HomePage} from "../home/home";
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
+import {Accounts} from "meteor/accounts-base";
 
 @Component({
     template
