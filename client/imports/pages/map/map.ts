@@ -29,7 +29,7 @@ export class MapPage {
 
         let map = new GoogleMap(element);
 
-        //"map.setCompassEnabled();
+        //ymap.setCompassEnabled();
 
         map.one(GoogleMapsEvent.MAP_READY).then(() => {
             Meteor.users.find({}).observeChanges({
@@ -40,7 +40,7 @@ export class MapPage {
         });
     }
 
-	fabPlusAction(e) {
-		console.log(e);
+	fabPlusAction() {
+		console.log('Sapristi !');
 	}
 }
