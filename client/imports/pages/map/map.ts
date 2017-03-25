@@ -39,7 +39,10 @@ export class MapPage {
 
             Geolocation.watchPosition(geolocationOptions).filter((p: any) => p.code === undefined).subscribe((position: Geoposition) => {
                 console.log(position);
-                Meteor.call('updateLocation', position, (e) => {
+                Meteor.call('updateLocation', {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                }, (e) => {
                     if (e) {
                         return console.error(e);
                     }
