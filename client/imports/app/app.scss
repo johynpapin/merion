@@ -4,7 +4,11 @@
 // styles are for the entire app and not just one component.
 // Additionally, this file can be also used as an entry point
 // to import other Sass files to be included in the output CSS.
-@import "../pages/introduction/introduction";
-@import "../pages/home/home";
+@import "../pages/chat/chat";
 @import "../pages/friends/friends";
+@import "../pages/home/home";
+@import "../pages/introduction/introduction";
+@import "../pages/map/map";
 @import "../pages/profile/profile";
+@import "../pages/register/register";
+@import "../pages/settings/settings";
