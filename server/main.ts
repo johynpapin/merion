@@ -13,7 +13,7 @@ Meteor.methods({
                     'profile.location': location
                 }
             });
-            console.log('Location updated for : ' + Meteor.userId());
+            console.log('Location updated for : ' + Meteor.userId() + ' at : ' + JSON.stringify(location));
         } else {
             console.log('A disconnected user tried to update location without being connected.');
         }
