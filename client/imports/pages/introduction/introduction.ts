@@ -6,6 +6,5 @@ import template from './introduction.html';
 })
 export class IntroductionPage {
     constructor() {
-
     }
 }
