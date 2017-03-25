@@ -20,6 +20,7 @@ import {FriendsPage} from "../friends/friends";
 export class HomePage {
     tabProfile: any = ProfilePage;
     tabFriends: any = FriendsPage;
+	tabHome: any = HomePage;
 
     constructor() {
     }
