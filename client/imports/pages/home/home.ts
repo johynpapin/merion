@@ -10,7 +10,9 @@ import {Slides} from "ionic-angular";
     template
 })
 export class HomePage {
-    @ViewChild(Slides) slides: Slides;
+	tabProfile: any = ProfilePage;
+	tabMap: any = MapPage;
+	tabFriends: any = FriendsPage;
 
     constructor() {
     }
