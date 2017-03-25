@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Inscription</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<!--<ion-slides pager color="primary">
+		<ion-slide>-->
+			<form [formGroup]="registerForm" (ngSubmit)="register()">
+				<ion-item>
+					<ion-label stacked>Pseudonyme</ion-label>
+					<ion-input type="text" formControlName="nickname"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label stacked>Prénom</ion-label>
+					<ion-input type="text" formControlName="firstname"></ion-input>
+				</ion-item>
+				
+				<ion-item>
+					<ion-label stacked>Nom</ion-label>
+					<ion-input type="text" formControlName="lastname"></ion-input>
+				</ion-item>
+
+				<!--<ion-item>
+					<ion-label stacked>Date de naissance</ion-label>
+					<ion-input type="date"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label stacked>Sexe</ion-label>
+					<ion-select [(ngModel)]="gender">
+						<ion-option value="m">Masculin</ion-option>
+						<ion-option value="f">Féminin</ion-option>
+					</ion-select>
+				</ion-item>
+
+				<div padding>
+					<button ion-button color="primary" block>Suivant</button>
+				</div>
+			</ion-list>
+		</ion-slide>
+
+		<ion-slide>
+			<ion-list>-->
+				<ion-item>
+					<ion-label stacked>E-mail</ion-label>
+					<ion-input type="email" value="" formControlName="email"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label stacked>Choisir un mot de passe</ion-label>
+					<ion-input type="password" formControlName="password"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label stacked>Confirmer le mot de passe</ion-label>
+					<ion-input type="password"></ion-input>
+				</ion-item>
+
+				<div padding>
+					<button ion-button color="primary" block type="submit" [disabled]="!registerForm.valid">S’enregistrer</button>
+				</div>
+			</form>
+		<!--</ion-slide>
+	<ion-slides>-->
+</ion-content>

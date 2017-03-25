@@ -29,27 +29,14 @@ export class MapPage {
 
         let map = new GoogleMap(element);
 
+        //"map.setCompassEnabled();
+
         map.one(GoogleMapsEvent.MAP_READY).then(() => {
-            Geolocation.getCurrentPosition().then((position: Geoposition) => {
-                let latLng: GoogleMapsLatLng = new GoogleMapsLatLng(position.coords.latitude, position.coords.longitude);
-
-                let pos: CameraPosition = {
-                    target: latLng,
-                    zoom: 18,
-                    tilt: 30
-                };
-
-                map.moveCamera(pos);
-
-                let markerOptions: GoogleMapsMarkerOptions = {
-                    position: latLng,
-                    title: '42'
-                };
-
-                map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
-                    marker.showInfoWindow();
-                });
-            });
+            Meteor.users.find({}).observeChanges({
+                changed(id, fields) {
+                    console.log(id, fields);
+                }
+            })
         });
     }
 }
