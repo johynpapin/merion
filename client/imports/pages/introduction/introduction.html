@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-slides pager>
+    <ion-slides pager color="primary">
         <ion-slide *ngFor="let slide of slides">
             <ion-toolbar>
                 <ion-buttons end>
@@ -25,7 +25,7 @@
             <h2 class="slide-title">Prêt à nous rejoindre ?</h2>
             <button (click)="register()" ion-button large clear icon-right>
                 Continuer
-                <ion-icon name="arrow-forward" color="primary"></ion-icon>
+                <ion-icon name="arrow-forward"></ion-icon>
             </button>
         </ion-slide>
     </ion-slides>
