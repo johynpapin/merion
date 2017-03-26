@@ -11,6 +11,7 @@ import {ChatPage} from "../pages/chat/chat";
 import {RegisterPage} from "../pages/register/register";
 import {TripsPage} from "../pages/trips/trips";
 import {NewTripPage} from "../pages/new-trip/new-trip";
+import {TripEndPage} from "../pages/trip-end/trip-end";
 import {AgmCoreModule} from 'angular2-google-maps/core';
 import {MapPage} from "../pages/map/map";
 import {EditProfilePage} from "../pages/edit-profile/edit-profile";
@@ -29,6 +30,7 @@ import {LoginPage} from "../pages/login/login";
         RegisterPage,
         TripsPage,
 		NewTripPage,
+		TripEndPage,
         MapPage,
         EditProfilePage,
         LoginPage
@@ -52,6 +54,7 @@ import {LoginPage} from "../pages/login/login";
         RegisterPage,
         TripsPage,
 		NewTripPage,
+		TripEndPage,
         MapPage,
         EditProfilePage,
         LoginPage
