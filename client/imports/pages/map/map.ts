@@ -66,17 +66,13 @@ export class MapPage {
     }
 
     fabPlusAction() {
-        console.log('Gestion de la destination.');
-
         let markerOptions: GoogleMapsMarkerOptions = {
             position: new GoogleMapsLatLng(Meteor.user().profile.location.lat, Meteor.user().profile.location.lng),
             title: 'Destination'
         };
 
-        console.log('Création du marqueur.');
-
         this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
-            this.map.moveCamera(markerOptions.position);
+            //this.map.moveCamera(markerOptions.position);
             marker.showInfoWindow();
         });
 
