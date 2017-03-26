@@ -80,7 +80,7 @@ export class MapPage {
                     const own = trip.owner === Meteor.userId();
                     const want = trip.users.indexOf(Meteor.userId()) > -1;
                     map.addMarker({
-                        position: new GoogleMapsLatLng(0, 0),
+                        position: new GoogleMapsLatLng(trip.destination.lat, trip.destination.lng),
                         title: own ? 'Je participe !' : want ? 'Je suis intéressé.' : 'Déstination disponible',
                         styles: {
                             color: '#00d646'
