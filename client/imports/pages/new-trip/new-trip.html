@@ -1,28 +1,23 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>Nouveau trajet</ion-title>
-  </ion-navbar>
+    <ion-navbar color="primary">
+        <ion-title>Proposition de trajet</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+    <h2>Informations supplémentaires</h2>
+    <p>Afin de compléter votre proposition de trajet, veuillez remplir ce petit formulaire.</p>
 
-<ion-list>
-  <ion-item>
-    <ion-label stacked>Destination</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label stacked>Mode de transport</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
- <ion-item>
-    <ion-label stacked>Phrase de code</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-   <ion-item>
-    <ion-label stacked>Heure/Date départ souhaité</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-</ion-list>
-<button ion-button block>Enregistrer le trajet</button>
+    <ion-list>
+        <ion-item>
+            <ion-label stacked>Mode de transport</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Heure/Date départ souhaité</ion-label>
+            <ion-input type="date"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button block>Enregistrer le trajet</button>
 </ion-content>
