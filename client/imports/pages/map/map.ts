@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, AlertController} from 'ionic-angular';
 import {
     GoogleMap,
     GoogleMapsEvent,
@@ -24,7 +24,7 @@ export class MapPage {
     draggableMarker: GoogleMapsMarker;
     location: GoogleMapsLatLng;
 
-    constructor(public navCtrl: NavController) {
+    constructor(public navCtrl: NavController, private alertCtrl: AlertController) {
     }
 
     ngAfterViewInit() {
@@ -34,10 +34,9 @@ export class MapPage {
     loadMap() {
         let element: HTMLElement = document.getElementById('map');
 
-        let map = this.map = new GoogleMap(element);
+        this.map = new GoogleMap(element);
 
         this.map.one(GoogleMapsEvent.MAP_READY).then(() => {
-
             this.map.addMarker({
                 position: new GoogleMapsLatLng(0, 0),
                 title: 'Réglage de la destination',
@@ -69,17 +68,41 @@ export class MapPage {
                 }
             });
 
+            let this_ = this;
+
             Trips.find({}).observe({
                 added(trip: Trip) {
                     console.log('Pouf pouf pouf');
                     const own = trip.owner === Meteor.userId();
                     const want = trip.users.indexOf(Meteor.userId()) > -1;
-                    map.addMarker({
+                    this_.map.addMarker({
                         position: new GoogleMapsLatLng(trip.destination.lat, trip.destination.lng),
                         title: own ? 'Je participe !' : want ? 'Je suis intéressé.' : 'Destination disponible',
+                        snippet: 'Si vous êtes intéressé, cliquez sur cette bulle.',
                         icon: own ? 'yellow' : want ? '#008ed6' : 'red',
                     }).then((marker: GoogleMapsMarker) => {
                         console.log('Marker created !');
+                        marker.on(GoogleMapsEvent.INFO_CLICK).subscribe(() => {
+                            console.log('oh lala, est-ce possible ?');
+                            let alert = this_.alertCtrl.create({
+                                title: 'Rejoindre le trajet',
+                                message: 'Souhaitez-vous rejoindre ce trajet ?',
+                                buttons: [
+                                    {
+                                        text: 'Non',
+                                        role: 'cancel'
+                                    },
+                                    {
+                                        text: 'Oui',
+                                        handler: () => {
+                                            console.log('Oui clicked');
+                                        }
+                                    }
+                                ]
+                            });
+                            this_.map.setAllGesturesEnabled(true);
+                            alert.present();
+                        });
                     }).catch(e => {
                         console.log("Erreur : " + e);
                     });

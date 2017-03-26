@@ -14,3 +14,7 @@
 @import "../pages/register/register";
 @import "../pages/settings/settings";
 @import "../pages/trips/trips";
+
+button {
+  pointer-events: auto !important;
+}
