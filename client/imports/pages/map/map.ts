@@ -80,30 +80,31 @@ export class MapPage {
                         title: own ? 'Je participe !' : want ? 'Je suis intéressé.' : 'Destination disponible',
                         snippet: 'Si vous êtes intéressé, cliquez sur cette bulle.',
                         icon: own ? 'yellow' : want ? '#008ed6' : 'red',
-                    }).then((marker: GoogleMapsMarker) => {
-                        console.log('Marker created !');
-                        marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-                            console.log('oh lala, est-ce possible ?');
-                            let alert = this_.alertCtrl.create({
-                                title: 'Rejoindre le trajet',
-                                message: 'Souhaitez-vous rejoindre ce trajet ?',
+                        infoClick: function() {
+                            this_.map.setClickable(false);
+                            let alert = this.alertCtrl.create({
+                                title: 'Rejoindre un trajet',
+                                message: 'Êtes-vous sûr de vouloir rejoindre ce trajet ?',
                                 buttons: [
                                     {
                                         text: 'Non',
-                                        role: 'cancel'
+                                        role: 'cancel',
+                                        handler: () => {
+                                            console.log('Cancel clicked');
+                                            this_.map.setClickable(true);
+                                        }
                                     },
                                     {
                                         text: 'Oui',
                                         handler: () => {
-                                            console.log('Oui clicked');
+                                            console.log('Buy clicked');
+                                            this_.map.setClickable(true);
                                         }
                                     }
                                 ]
                             });
                             alert.present();
-                        });
-                    }).catch(e => {
-                        console.log("Erreur : " + e);
+                        }
                     });
                 }
             });
