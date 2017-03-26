@@ -18,11 +18,11 @@ export class FriendsPage {
             buttons: [
                 {
                     text: 'Profil',
-                    handler: showProfile
+                    handler: () => { this.showProfile(); }
                 },
                 {
                     text: 'Messages',
-                    handler: showChat
+                    handler: () => { this.showChat(); }
                 },
                 {
                     text: 'Supprimer',
