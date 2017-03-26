@@ -13,7 +13,7 @@ export class TripEndPage {
     }
 
 	showHome() {
-		this.natCtrl.setRoot(HomePage);
+		this.navCtrl.setRoot(HomePage);
 		this.navCtrl.popToRoot();
 	}
 }

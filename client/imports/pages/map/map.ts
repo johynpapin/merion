@@ -82,7 +82,7 @@ export class MapPage {
                         icon: own ? 'yellow' : want ? '#008ed6' : 'red',
                     }).then((marker: GoogleMapsMarker) => {
                         console.log('Marker created !');
-                        marker.on(GoogleMapsEvent.INFO_CLICK).subscribe(() => {
+                        marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
                             console.log('oh lala, est-ce possible ?');
                             let alert = this_.alertCtrl.create({
                                 title: 'Rejoindre le trajet',
@@ -100,7 +100,6 @@ export class MapPage {
                                     }
                                 ]
                             });
-                            this_.map.setAllGesturesEnabled(true);
                             alert.present();
                         });
                     }).catch(e => {
