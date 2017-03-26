@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ActionSheetController} from 'ionic-angular';
+import {ActionSheetController, NavController} from 'ionic-angular';
 import template from './friends.html';
 
 @Component({
@@ -7,7 +7,7 @@ import template from './friends.html';
     template
 })
 export class FriendsPage {
-    constructor(public actionSheetCtrl: ActionSheetController) {
+    constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController) {
     }
 
     presentActionSheet() {
@@ -37,5 +37,9 @@ export class FriendsPage {
         });
         actionSheet.present();
     }
+
+	showChat() {
+		this.navCtrl.push(ChatPage);
+	}
 }
 
