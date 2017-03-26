@@ -1,45 +1,34 @@
 import {Component} from '@angular/core';
-import template from './register.html';
+import template from './login.html';
 import {NavController, ToastController, LoadingController} from "ionic-angular";
 import {HomePage} from "../home/home";
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
-import {Accounts} from "meteor/accounts-base";
+import {Meteor} from 'meteor/meteor';
 
 @Component({
-    selector: 'register-page',
+    selector: 'login-page',
     template
 })
-export class RegisterPage {
-    private registerForm: FormGroup;
+export class LoginPage {
+    private loginForm: FormGroup;
 
     constructor(private navCtrl: NavController, private formBuilder: FormBuilder, public loadingCtrl: LoadingController, private toastCtrl: ToastController) {
-        this.registerForm = this.formBuilder.group({
-            nickname: ['', Validators.required],
-            lastname: ['', Validators.required],
-            firstname: ['', Validators.required],
-            email: ['', Validators.compose([Validators.required, Validators.email])],
-            password: ['', Validators.required] // TODO : vérifier que le re soit égal au mot de passe
+        this.loginForm = this.formBuilder.group({
+            login: ['', Validators.required],
+            password: ['', Validators.required]
         });
     }
 
-    register() {
-        let v = this.registerForm.value;
+    login() {
+        let v = this.loginForm.value;
 
         let loading = this.loadingCtrl.create({
-            content: 'Inscription en cours...'
+            content: 'Connexion en cours...'
         });
 
         loading.present();
 
-        Accounts.createUser({
-            username: v.nickname,
-            email: v.email,
-            password: v.password,
-            profile: {
-                lastName: v.lastname,
-                firstName: v.firstname
-            }
-        }, (e) => {
+        Meteor.loginWithPassword(v.login, v.password, (e) => {
             loading.dismiss();
             if (e) {
                 let toast = this.toastCtrl.create({
@@ -50,7 +39,7 @@ export class RegisterPage {
                 toast.present();
             } else {
                 let toast = this.toastCtrl.create({
-                    message: 'Vous êtes désormais inscrit, bienvenue !',
+                    message: 'Vous êtes désormais connecté.',
                     duration: 3000,
                     showCloseButton: true
                 });

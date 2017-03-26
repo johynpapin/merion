@@ -1,0 +1,16 @@
+
+.bubbles {
+  width: 75%;
+  height: auto;
+  border: 1px solid color($colors, primary);
+  border-radius: 25px;
+  background-color: color($colors, primary);
+}
+
+.pleft {
+  float: left;
+}
+
+.pright {
+  float: right;
+}

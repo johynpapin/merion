@@ -1,0 +1,13 @@
+map-page {
+	div#map {
+		z-index: 0;
+	}
+
+	ion-fab > button {
+		z-index: 999;
+	}
+
+	#relou {
+		z-index: 1000;
+	}
+}

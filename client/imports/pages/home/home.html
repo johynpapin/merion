@@ -1,13 +1,5 @@
-<!--<ion-header>
-    <ion-navbar color="primary">
-        <ion-title>
-            Accueil
-        </ion-title>
-    </ion-navbar>
-</ion-header>-->
-
-<ion-content>
-    <ion-content>
-        <div #map id="map" style="height:100%;"></div>
-    </ion-content>
-</ion-content>
+<ion-tabs selectedIndex="1">
+	<ion-tab tabIcon="walk" tabTitle="Mes trajets" [root]="tabTrips"></ion-tab>
+	<ion-tab tabIcon="locate" tabTitle="Carte" [root]="tabMap"></ion-tab>
+	<ion-tab tabIcon="people" tabTitle="Amis" [root]="tabFriends"></ion-tab>
+</ion-tabs>

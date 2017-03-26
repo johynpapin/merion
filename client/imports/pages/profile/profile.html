@@ -1,24 +1,24 @@
 <ion-header>
     <ion-navbar color="primary">
         <ion-title>Profil</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="showEditProfile()">
+                <ion-icon name="create"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding class="card-background-page">
     <ion-card>
-        <ion-card-content>
-            <ion-card-title>
-                Julia Gameuse
-            </ion-card-title>
-            <img src="julia_gameuse.jpg"/>
-            <p>
-                Le tipee pour un ordi sans virus a 1800€.
-            </p>
-        </ion-card-content>
+        <img src="julia_gameuse.jpg"/>
+        <div class="card-title">Julia Gameuse</div>
+        <div class="card-subtitle">Le tipee pour un ordi sans virus a 1800€.</div>
+    </ion-card>
         <ion-item>
             <ion-icon item-left name='walk'></ion-icon>
             Mode de transport favori
-            <ion-badge item-right>Vélobite</ion-badge>
+            <ion-badge item-right>Marche à pied</ion-badge>
         </ion-item>
         <ion-item>
             <ion-icon name='swap' item-left></ion-icon>
@@ -52,7 +52,6 @@
         <ion-item>
             <ion-icon name='ribbon' item-left></ion-icon>
             Badge(s)
-            <ion-badge item-right>69</ion-badge>
+            <ion-badge item-right>14</ion-badge>
         </ion-item>
-    </ion-card>
 </ion-content>

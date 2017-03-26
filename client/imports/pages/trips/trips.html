@@ -1,28 +1,60 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>Trajet</ion-title>
-  </ion-navbar>
+	<ion-navbar color="primary">
+	<ion-title>Mes trajets</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="showSettings()">
+				<ion-icon name="settings"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  
+  <!-- <ion-list> -->
+   
+    <ion-list-header>
+      Trajets à venir
+    </ion-list-header>
+   
+    <ion-card>
+      <ion-item>
+        <h2>Pour arriver à (lieu) à (heure)</h2>
+        <p>Le (date)</p>
+      </ion-item>
 
-<ion-list>
-  <ion-item>
-    <ion-label stacked>Destination</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label stacked>Mode de transport</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
- <ion-item>
-    <ion-label stacked>Phrase de code</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-   <ion-item>
-    <ion-label stacked>Heure/Date départ souhaité</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-</ion-list>
-<button ion-button>Valider trajet</button>
+      <img src="img/advance-card-bttf.png">
+
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="walk"></ion-icon>
+            <div>Partir</div>
+          </button>
+        </ion-col>
+
+        <ion-col>
+        
+          <button ion-button icon-right clear small>
+            <ion-icon name="close-circle"></ion-icon>
+            <div>Annuler</div>
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+ <!-- </ion-list> -->
+  
+  <ion-list>
+    
+    <ion-list-header>
+      Trajets effectués
+    </ion-list-header>
+    
+    <ion-item>Pour arriver à (lieu) à (heure) le (date)</ion-item>
+    <ion-item>Pour arriver à (lieu) à (heure) le (date)</ion-item>
+    <ion-item>Pour arriver à (lieu) à (heure) le (date)</ion-item>
+    
+  </ion-list>
+  
 </ion-content>

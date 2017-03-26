@@ -5,11 +5,44 @@
 </ion-header>
 
 <ion-content padding>
+
+  <ion-list>
+    <ion-item no-lines>
+      <ion-avatar item-left>
+        <img src="p1.jpg">
+      </ion-avatar>
+      <div class="pleft">
+          <h2>Alice</h2>
+          <p>Bonjour, ça va ?</p>
+      </div>
+    </ion-item>
+    <ion-item item-right no-lines>
+      <ion-avatar item-right>
+        <img src="p2.jpg">
+      </ion-avatar>
+      <div class="pright">
+          <h2>Bob</h2>
+          <p>Oui très bien, et toi ?</p>
+      </div>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-avatar item-left>
+        <img src="p1.jpg">
+      </ion-avatar>
+      <div class="pleft">
+          <h2>Alice</h2>
+          <p>Bien merci.</p>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
 
 <ion-footer>
     <ion-item>
-        <ion-label stacked>Message</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-item>
+          <ion-textarea placeholder="Message"></ion-textarea>
+          <ion-icon name="send" item-right></ion-icon>
+        </ion-item>
     </ion-item>
 </ion-footer>

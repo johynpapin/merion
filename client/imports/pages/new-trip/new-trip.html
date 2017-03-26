@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Proposition de trajet</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label>Mode de transport</ion-label>
+            <ion-select>
+                <ion-option value="walk">À pied</ion-option>
+                <ion-option value="bike">À vélo</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Date de départ</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY HH:mm"></ion-datetime>
+        </ion-item>
+    </ion-list>
+    <button ion-button block color="primary">Enregistrer le trajet</button>
+    <button ion-button block color="secondary" (click)="viewCtrl.dismiss()">Abandonner la proposition</button>
+</ion-content>

@@ -1,12 +1,15 @@
 import {Component} from '@angular/core';
-import {ActionSheetController} from 'ionic-angular';
+import {ActionSheetController, NavController} from 'ionic-angular';
+import {ChatPage} from '../chat/chat';
+import {ProfilePage} from '../profile/profile';
 import template from './friends.html';
 
 @Component({
+    selector: 'friends-page',
     template
 })
 export class FriendsPage {
-    constructor(public actionSheetCtrl: ActionSheetController) {
+    constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController) {
     }
 
     presentActionSheet() {
@@ -15,15 +18,11 @@ export class FriendsPage {
             buttons: [
                 {
                     text: 'Profil',
-                    handler: () => {
-                        console.log('Profil');
-                    }
+                    handler: () => { this.showProfile(); }
                 },
                 {
                     text: 'Messages',
-                    handler: () => {
-                        console.log('Messages');
-                    }
+                    handler: () => { this.showChat(); }
                 },
                 {
                     text: 'Supprimer',
@@ -36,5 +35,13 @@ export class FriendsPage {
         });
         actionSheet.present();
     }
+
+	showChat() {
+		this.navCtrl.push(ChatPage);
+	}
+
+	showProfile() {
+		this.navCtrl.push(ProfilePage);
+	}
 }
 
