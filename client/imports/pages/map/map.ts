@@ -48,7 +48,11 @@ export class MapPage {
 
             this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
                 this.draggableMarker = marker;
+                this.draggableMarker.addEventListener(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+                   console.log("AETNRTENRS");
+                });
                 this.draggableMarker.addEventListener('dblclick').subscribe(() => {
+                    console.log('WOAW');
                     this.draggableMarker.setVisible(false);
                     this.draggableMarker.getPosition().then((position: GoogleMapsLatLng) => {
                         let newTripModal = this.modalCtrl.create(NewTripPage, {position: position});
