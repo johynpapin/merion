@@ -39,7 +39,10 @@ export class MapPage {
                 title: 'Réglage de la destination',
                 snippet: 'Pressez-moi longtemps pour me déplacer.',
                 draggable: true,
-                visible: false
+                visible: false,
+                styles : {
+                    color: '#00d646'
+                }
             };
 
             this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
