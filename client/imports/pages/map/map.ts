@@ -84,11 +84,11 @@ export class MapPage {
         if (validate) {
             this.draggableMarker.setVisible(false);
             this.draggableMarker.getPosition().then((position: GoogleMapsLatLng) => {
-                this.modalCtrl.create(NewTripPage, {position: position}).present().then((r: any) => {
-                    console.log(r);
-                }).catch(e => {
-                    console.error(e);
+                let newTripModal = this.modalCtrl.create(NewTripPage, {position: position});
+                newTripModal.onDidDismiss(data => {
+                    console.log(data);
                 });
+                newTripModal.present();
             });
         } else if (this.draggableMarker.isVisible()) {
             console.log('draggableMarker is visible');

@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import template from './new-trip.html';
-import {NavParams} from "ionic-angular";
+import {NavParams, ViewController} from "ionic-angular";
 
 @Component({
     template
 })
 export class NewTripPage {
-    constructor(params: NavParams) {
+    constructor(private params: NavParams, private viewCtrl: ViewController) {
 
     }
 }
