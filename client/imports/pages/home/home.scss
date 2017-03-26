@@ -1,9 +1,9 @@
 home-page {
-  .tabs-md .tab-button[aria-selected="true"] .tab-button-icon {
+  .tabs-md #mapcolor .tab-button-icon {
     color: #ffffff; 
   }
   
-  .tabs-md .tab-button[aria-selected="true"] {
+  .tabs-md #mapcolor {
     color: #ffffff; 
     background-color: color($colors, primary);
   }
