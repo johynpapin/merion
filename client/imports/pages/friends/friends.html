@@ -13,18 +13,26 @@
 
         <ion-item>
             <ion-icon name="woman" isActive="true" item-left (click)="presentActionSheet()" color="primary"></ion-icon>
-			<div (click)="showChat()">
-				Alice
-				<ion-icon name="chatboxes" item-right color="primary"></ion-icon>
-			</div>
+			<span (click)="showChat()">Alice</span>
+			<ion-icon name="chatboxes" (click)="showChat()" item-right color="primary"></ion-icon>
         </ion-item>
 
         <ion-item>
 			<ion-icon name="man" isActive="false" item-left (click)="presentActionSheet()" color="primary"></ion-icon>
-			<div (click)="showChat()">
-				Bob
-				<ion-icon name="chatboxes" item-right color="primary"></ion-icon>
-			</div>
+			<span (click)="showChat()">Bob</span>
+			<ion-icon name="chatboxes" (click)="showChat()" item-right color="primary"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+			<ion-icon name="woman" isActive="false" item-left (click)="presentActionSheet()" color="primary"></ion-icon>
+			<span (click)="showChat()">Carole</span>
+			<ion-icon name="chatboxes" (click)="showChat()" item-right color="primary"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+			<ion-icon name="man" isActive="false" item-left (click)="presentActionSheet()" color="primary"></ion-icon>
+			<span (click)="showChat()">Denis</span>
+			<ion-icon name="chatboxes" (click)="showChat()" item-right color="primary"></ion-icon>
         </ion-item>
     </ion-list>
 </ion-content>
