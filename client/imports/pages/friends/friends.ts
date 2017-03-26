@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ActionSheetController, NavController} from 'ionic-angular';
+import {ChatPage} from '../chat/chat';
 import template from './friends.html';
 
 @Component({
