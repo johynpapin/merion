@@ -5,10 +5,10 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
+    <form [formGroup]="tripForm" (ngSubmit)="create()">
         <ion-item>
             <ion-label>Mode de transport</ion-label>
-            <ion-select>
+            <ion-select formControlName="transport">
                 <ion-option value="walk">À pied</ion-option>
                 <ion-option value="bike">À vélo</ion-option>
             </ion-select>
@@ -16,9 +16,9 @@
 
         <ion-item>
             <ion-label>Date d’arrivée</ion-label>
-            <ion-datetime displayFormat="DD/MM/YYYY HH:mm"></ion-datetime>
+            <ion-datetime formControlName="date" displayFormat="DD/MM/YYYY HH:mm"></ion-datetime>
         </ion-item>
-    </ion-list>
-    <button ion-button block color="primary">Enregistrer le trajet</button>
+        <button ion-button block color="primary" type="submit" [disabled]="!tripForm.valid">Enregistrer le trajet</button>
+    </form>
     <button ion-button block color="secondary" (click)="navCtrl.pop()">Abandonner la proposition</button>
 </ion-content>

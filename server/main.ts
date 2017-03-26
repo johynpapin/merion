@@ -16,5 +16,8 @@ Meteor.methods({
         } else {
             console.log('A disconnected user tried to update location without being connected.');
         }
+    },
+    'newTrip'(data: any) {
+        console.log(data);
     }
 });

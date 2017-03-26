@@ -81,7 +81,7 @@ export class MapPage {
         if (this.draggableMarker.isVisible()) {
             this.draggableMarker.setVisible(false);
             this.draggableMarker.getPosition().then((position: GoogleMapsLatLng) => {
-                this.navCtrl.push(NewTripPage, {position: position});
+                this.navCtrl.push(NewTripPage, {destination: position});
             });
         } else {
             this.map.animateCamera(this.location);
