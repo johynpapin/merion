@@ -41,13 +41,27 @@ export class MapPage {
                 snippet: 'Pressez-moi longtemps pour me déplacer.',
                 draggable: true,
                 visible: false,
-                styles : {
+                styles: {
                     color: '#00d646'
                 }
             };
 
             this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
                 this.draggableMarker = marker;
+                this.draggableMarker.addEventListener(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+                   console.log("AETNRTENRS");
+                });
+                this.draggableMarker.addEventListener('dblclick').subscribe(() => {
+                    console.log('WOAW');
+                    this.draggableMarker.setVisible(false);
+                    this.draggableMarker.getPosition().then((position: GoogleMapsLatLng) => {
+                        let newTripModal = this.modalCtrl.create(NewTripPage, {position: position});
+                        newTripModal.onDidDismiss(data => {
+                            console.log(data);
+                        });
+                        newTripModal.present();
+                    });
+                });
             }).catch(e => {
                 console.log("Erreur : " + e);
             });
@@ -77,27 +91,11 @@ export class MapPage {
         });
     }
 
-    fabPlusAction(validate?:boolean) {
-        console.log('fabPlusAction');
-        if (validate) {
-            console.log();
-            console.log();
-            console.log("=================== ICI ====================");
-            console.log();
-            console.log();
-            this.draggableMarker.setVisible(false);
-            this.draggableMarker.getPosition().then((position: GoogleMapsLatLng) => {
-                let newTripModal = this.modalCtrl.create(NewTripPage, {position: position});
-                newTripModal.onDidDismiss(data => {
-                    console.log(data);
-                });
-                newTripModal.present();
-            });
-        } else if (this.draggableMarker.isVisible()) {
-            console.log('draggableMarker is visible');
+    fabPlusAction() {
+        if (this.draggableMarker.isVisible()) {
             this.draggableMarker.setVisible(false);
         } else {
-            console.log('draggableMarker is invisible');
+            this.map.animateCamera(this.location);
             this.draggableMarker.setPosition(this.location);
             this.draggableMarker.setVisible(true);
             this.draggableMarker.showInfoWindow();
