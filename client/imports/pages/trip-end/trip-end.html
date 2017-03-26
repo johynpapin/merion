@@ -6,11 +6,15 @@
 
 
 <ion-content padding>
-    <ion-item>
-        CO² non émis (g)
-        <ion-badge item-right>(valeur)</ion-badge>
-    </ion-item>
-    
+	<ion-toolbar>
+		<ion-title>Trajet avec Alice</ion-title>
+	</ion-toolbar>
+
+	<ion-item>
+		<span item-left>3.0 km</span>
+		<span item-right>21 min</span>
+	</ion-item>
+
     <ion-item>
         Notez votre compagnon de route
         <ion-icon name='star' item-right></ion-icon>
@@ -19,16 +23,27 @@
         <ion-icon name='star' item-right></ion-icon>
         <ion-icon name='star-outline' item-right></ion-icon>
     </ion-item>
-    
+
     <ion-item>
-        Voulez-vous ajouter (pseudo) en ami?
+        Ajouter comme ami ?
         <button ion-button item-right color="primary">OUI</button>
         <button ion-button item-right color="danger">NON</button>
     </ion-item>
-    
+
+	<ion-toolbar>
+		<ion-title>Écologie</ion-title>
+	</ion-toolbar>
+
     <ion-item>
-        <button ion-button block color="secondary">RETOUR A L'ACCUEIL</button>
-    </ion-item>
+        CO² non émis (g)
+        <ion-badge item-right>360</ion-badge>
+	</ion-item>
+
+	<ion-item>
+		Économies de carburant (€)
+		<ion-badge item-right>0,20</ion-item>
+	<ion-item>
     
-    
+	<button ion-button block color="secondary">Retour à l’accueil</button>
 </ion-content>
+
