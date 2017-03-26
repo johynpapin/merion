@@ -3,7 +3,11 @@ map-page {
 		z-index: 0;
 	}
 
-	ion-fab, ion-fab button, ion-fab ion-fab-list {
+	ion-fab > button {
 		z-index: 999;
+	}
+
+	ion-fab-list > button {
+		z-index: 1000;
 	}
 }
