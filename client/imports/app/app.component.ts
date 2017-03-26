@@ -9,6 +9,7 @@ import {ProfilePage} from "../pages/profile/profile";
 import {SettingsPage} from "../pages/settings/settings";
 import {ChatPage} from "../pages/chat/chat";
 import {TripsPage} from "../pages/trips/trips";
+import {NewTripPage} from "../pages/new-trip/new-trip";
 import {Meteor} from "meteor/meteor";
 import {MapPage} from "../pages/map/map";
 import {EditProfilePage} from "../pages/edit-profile/edit-profile";
@@ -39,7 +40,8 @@ export class MyApp {
             {title: 'Profil', component: ProfilePage},
             {title: 'Réglages', component: SettingsPage},
             {title: 'Chat', component: ChatPage},
-            {title: 'Trajets', component: TripsPage},
+            {title: 'Mes Trajets', component: TripsPage},
+            {title: 'Nouveau trajet', component: NewTripPage},
             {title: 'Carte', component: MapPage},
             {title: 'Éditer le profil', component: EditProfilePage},
             {title: 'Connexion', component: LoginPage}
