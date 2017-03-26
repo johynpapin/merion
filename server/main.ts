@@ -23,7 +23,6 @@ Meteor.methods({
         if (data.transport && data.date && data.destination) {
             const places = new GooglePlaces("AIzaSyD9RGaIOhX-w3895hwXEAa3JDO3wHmJK8Y");
             const params = {
-
                 location: data.destination.latitude + ',' + data.destination.longitude,
                 radius: 1000 // TODO : réglage sur ce point
             };
