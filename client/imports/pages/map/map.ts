@@ -73,11 +73,12 @@ export class MapPage {
             title: 'Destination'
         };
 
+        console.log('Création du marqueur.');
+
         this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
             this.map.moveCamera(markerOptions.position);
             marker.showInfoWindow();
         });
-
 
         /*
          let modal = this.modalCtrl.create(NewTripPage);
