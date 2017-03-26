@@ -62,7 +62,6 @@ export class MapPage {
                     if (e) {
                         return console.error(e);
                     }
-                    console.log('Location updated');
                 });
             });
 
@@ -71,7 +70,6 @@ export class MapPage {
 
             Meteor.users.find({}).observeChanges({
                 changed(id, fields) {
-                    console.log("Changement observé : " + id + "      " + fields);
                 }
             });
         }).catch(e => {
