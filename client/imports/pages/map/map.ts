@@ -68,7 +68,7 @@ export class MapPage {
     fabPlusAction() {
         let markerOptions: GoogleMapsMarkerOptions = {
             position: new GoogleMapsLatLng(Meteor.user().profile.location.lat, Meteor.user().profile.location.lng),
-            title: 'Destination',
+            title: 'Régagle de la destination',
             snippet: 'Pressez-moi longtemps pour me déplacer.',
             draggable: true
         };
