@@ -15,13 +15,12 @@
 			Trajets à venir
 		</ion-title>
     </ion-toolbar>
-	
-	<ion-card>
-		<div style="position:relative;">
-			<img src="irc.png">
-			<ion-fab right top>
-				<button ion-fab><ion-icon name="pin"></ion-icon></button>
-			</ion-fab>
+
+	<ion-card *ngFor="let trip of trips | async">
+		<div style="position:relative; height: 250px;">
+            <sebm-google-map style="height: 250px;" [latitude]="trip.destination.lat" [longitude]="trip.destination.lng" [zoom]="18">
+                <sebm-google-map-marker [latitude]="trip.destination.lat" [longitude]="trip.destination.lng"></sebm-google-map-marker>
+            </sebm-google-map>
 		</div>
 		<ion-item>
 			<ion-icon name="bicycle" item-left large></ion-icon>
@@ -31,28 +30,6 @@
 		<ion-item>
 			<span item-left>18 min</span>
 			<span item-left>(2.6 km)</span>
-			<button ion-button icon-left clear item-right>
-				<ion-icon name="navigate"></ion-icon>
-				Start
-			</button>
-		</ion-item>
-	</ion-card>
-
-	<ion-card>
-		<div style="position:relative;">
-			<img src="p2.jpg">
-			<ion-fab right top>
-				<button ion-fab><ion-icon name="pin"></ion-icon></button>
-			</ion-fab>
-		</div>
-		<ion-item>
-			<ion-icon name="walk" item-left large></ion-icon>
-			<h2>Rencontre avec Bob</h2>
-			<p>42 rue Lourde, 22300 Lannion</p>
-		</ion-item>
-		<ion-item>
-			<span item-left>42 min</span>
-			<span item-left>(6.3 km)</span>
 			<button ion-button icon-left clear item-right>
 				<ion-icon name="navigate"></ion-icon>
 				Start

@@ -11,4 +11,5 @@ export interface Trip {
     answer: string;
     owner: string;
     users: string[];
+    _id?: string;
 }

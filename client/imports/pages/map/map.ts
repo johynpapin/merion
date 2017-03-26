@@ -14,6 +14,7 @@ import template from './map.html';
 import {NewTripPage} from "../new-trip/new-trip";
 import {Trips} from "../../../../imports/collections";
 import {Trip} from "../../../../imports/models";
+import {Meteor} from "meteor/meteor";
 
 @Component({
     selector: 'map-page',
@@ -23,18 +24,25 @@ export class MapPage {
     map: GoogleMap;
     draggableMarker: GoogleMapsMarker;
     location: GoogleMapsLatLng;
+    markers: any = {};
 
     constructor(public navCtrl: NavController, private alertCtrl: AlertController) {
     }
 
     ngAfterViewInit() {
-        this.loadMap();
+        if (Meteor.isCordova) {
+            console.log('JE SUIS CORDOVA');
+            this.loadMap();
+        }
     }
 
     loadMap() {
         let element: HTMLElement = document.getElementById('map');
 
         this.map = new GoogleMap(element);
+
+        this.map.setMyLocationEnabled(true);
+        this.map.setCompassEnabled(true);
 
         this.map.one(GoogleMapsEvent.MAP_READY).then(() => {
             this.map.addMarker({
@@ -78,33 +86,79 @@ export class MapPage {
                     this_.map.addMarker({
                         position: new GoogleMapsLatLng(trip.destination.lat, trip.destination.lng),
                         title: own ? 'Je participe !' : want ? 'Je suis intéressé.' : 'Destination disponible',
-                        snippet: 'Si vous êtes intéressé, cliquez sur cette bulle.',
+                        snippet: own || want ? 'Vous êtes déjà en relation avec ce trajet.' : 'Si vous êtes intéressé, cliquez sur cette bulle.',
                         icon: own ? 'yellow' : want ? '#008ed6' : 'red',
-                        infoClick: function() {
-                            this_.map.setClickable(false);
-                            let alert = this.alertCtrl.create({
-                                title: 'Rejoindre un trajet',
-                                message: 'Êtes-vous sûr de vouloir rejoindre ce trajet ?',
-                                buttons: [
-                                    {
-                                        text: 'Non',
-                                        role: 'cancel',
-                                        handler: () => {
-                                            console.log('Cancel clicked');
-                                            this_.map.setClickable(true);
+                        infoClick: function () {
+                            if (!own && !want) {
+                                this_.map.setClickable(false);
+                                let alert = this_.alertCtrl.create({
+                                    title: 'Rejoindre un trajet',
+                                    message: 'Êtes-vous sûr de vouloir rejoindre ce trajet ?',
+                                    buttons: [
+                                        {
+                                            text: 'Non',
+                                            role: 'cancel',
+                                            handler: () => {
+                                                console.log('Cancel clicked');
+                                                this_.map.setClickable(true);
+                                            }
+                                        },
+                                        {
+                                            text: 'Oui',
+                                            handler: () => {
+                                                console.log('Oui clicked');
+                                                Meteor.call('joinTrip', trip._id);
+                                                this_.map.setClickable(true);
+                                            }
                                         }
-                                    },
-                                    {
-                                        text: 'Oui',
-                                        handler: () => {
-                                            console.log('Buy clicked');
-                                            this_.map.setClickable(true);
-                                        }
-                                    }
-                                ]
-                            });
-                            alert.present();
+                                    ]
+                                });
+                                alert.present();
+                            }
                         }
+                    }).then((marker: GoogleMapsMarker) => {
+                        this_.markers[trip._id] = marker;
+                    });
+                }, changedAt(newTrip: Trip, oldTrip: Trip, atIndex) {
+                    this_.markers[newTrip._id].remove();
+                    console.log('Pouf pouf pouf');
+                    const own = newTrip.owner === Meteor.userId();
+                    const want = newTrip.users.indexOf(Meteor.userId()) > -1;
+                    this_.map.addMarker({
+                        position: new GoogleMapsLatLng(newTrip.destination.lat, newTrip.destination.lng),
+                        title: own ? 'Je participe !' : want ? 'Je suis intéressé.' : 'Destination disponible',
+                        snippet: own || want ? 'Vous êtes déjà en relation avec ce trajet.' : 'Si vous êtes intéressé, cliquez sur cette bulle.',
+                        icon: own ? 'yellow' : want ? '#008ed6' : 'red',
+                        infoClick: function () {
+                            if (!own && !want) {
+                                this_.map.setClickable(false);
+                                let alert = this_.alertCtrl.create({
+                                    title: 'Rejoindre un trajet',
+                                    message: 'Êtes-vous sûr de vouloir rejoindre ce trajet ?',
+                                    buttons: [
+                                        {
+                                            text: 'Non',
+                                            role: 'cancel',
+                                            handler: () => {
+                                                console.log('Cancel clicked');
+                                                this_.map.setClickable(true);
+                                            }
+                                        },
+                                        {
+                                            text: 'Oui',
+                                            handler: () => {
+                                                console.log('Oui clicked');
+                                                Meteor.call('joinTrip', newTrip._id);
+                                                this_.map.setClickable(true);
+                                            }
+                                        }
+                                    ]
+                                });
+                                alert.present();
+                            }
+                        }
+                    }).then((marker: GoogleMapsMarker) => {
+                        this_.markers[newTrip._id] = marker;
                     });
                 }
             });

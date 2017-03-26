@@ -8,7 +8,7 @@ Meteor.startup(() => {
 });
 
 Meteor.methods({
-    'updateLocation'(location: Location) {
+    updateLocation(location: Location) {
         if (Meteor.userId() !== null) {
             Meteor.users.update(Meteor.userId(), {
                 $set: {
@@ -19,7 +19,7 @@ Meteor.methods({
             console.log('A disconnected user tried to update location without being connected.');
         }
     },
-    'newTrip'(data: any) {
+    newTrip(data: any) {
         if (data.transport && data.date && data.destination) {
             let trip: Trip = {
                 destination: data.destination,
@@ -34,6 +34,15 @@ Meteor.methods({
         } else {
             throw new Meteor.Error('500',
                 'Il manque plusieurs données importantes.');
+        }
+    },
+    joinTrip(id: string) {
+        if (Meteor.userId()) {
+            Trips.update({_id: id}, {
+                $addToSet: {
+                    users: Meteor.userId()
+                }
+            });
         }
     },
     findPoint(tripId: string) {
