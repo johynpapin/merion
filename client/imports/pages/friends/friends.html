@@ -6,17 +6,21 @@
 
 <ion-content padding>
     <ion-list>
-        <button ion-item>
+		<ion-list-header>
+		<ion-icon name="person" item-left (click)="showProfile()"></ion-icon>
+		Moi
+		</header>
+        <ion-item>
             <ion-icon name="woman" isActive="true" item-left (click)="presentActionSheet()"></ion-icon>
             Alice
             <ion-icon name="chatboxes" item-right (click)="showChat()"></ion-icon>
-        </button>
+        </ion-item>
 
-        <button ion-item>
+        <ion-item>
 			<ion-icon name="man" isActive="false" item-left (click)="presentActionSheet()"></ion-icon>
 			Bob
 			<ion-icon name="chatboxes" item-right (click)="showChat()"></ion-icon>
-        </button>
+        </ion-item>
     </ion-list>
 </ion-content>
 

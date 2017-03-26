@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {ActionSheetController, NavController} from 'ionic-angular';
 import {ChatPage} from '../chat/chat';
+import {ProfilePage} from '../profile/profile';
 import template from './friends.html';
 
 @Component({
@@ -17,15 +18,11 @@ export class FriendsPage {
             buttons: [
                 {
                     text: 'Profil',
-                    handler: () => {
-                        console.log('Profil');
-                    }
+                    handler: showProfile
                 },
                 {
                     text: 'Messages',
-                    handler: () => {
-                        console.log('Messages');
-                    }
+                    handler: showChat
                 },
                 {
                     text: 'Supprimer',
@@ -41,6 +38,10 @@ export class FriendsPage {
 
 	showChat() {
 		this.navCtrl.push(ChatPage);
+	}
+
+	showProfile() {
+		this.navCtrl.push(ProfilePage);
 	}
 }
 
