@@ -1,7 +1,6 @@
 import {Meteor} from 'meteor/meteor';
 import {Location, Trip} from '../imports/models';
 import {Trips} from '../imports/collections';
-import {GooglePlaces} from 'node-googleplaces';
 
 Meteor.startup(() => {
     // code to run on server at startup
@@ -21,14 +20,17 @@ Meteor.methods({
     },
     'newTrip'(data: any) {
         if (data.transport && data.date && data.destination) {
-            const places = new GooglePlaces("AIzaSyD9RGaIOhX-w3895hwXEAa3JDO3wHmJK8Y");
-            const params = {
-                location: data.destination.latitude + ',' + data.destination.longitude,
-                radius: 1000 // TODO : réglage sur ce point
-            };
-            places.nearbySearch(params).then((res) => {
-                console.log(res.body);
+            HTTP.call("GET", "https://maps.googleapis.com/maps/api/place/nearbysearch/json", {
+                params: {
+                    key: "AIzaSyD9RGaIOhX-w3895hwXEAa3JDO3wHmJK8Y",
+                    location: data.destination.lat + ',' + data.destination.lng,
+                    radius: 1000
+                }
+            }, (r, e) => {
+                console.log(JSON.stringify(r));
+                console.log(e);
             });
+            console.log('ok');
         } else {
             throw new Meteor.Error('500',
                 'Il manque plusieurs données importantes.');
