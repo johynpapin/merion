@@ -11,6 +11,7 @@ import {
     GoogleMapsMarkerOptions
 } from 'ionic-native';
 import template from './map.html';
+import {NewTripPage} from "../new-trip/new-trip";
 
 @Component({
     selector: 'map-page',
@@ -42,8 +43,7 @@ export class MapPage {
                 visible: false,
                 styles : {
                     color: '#00d646'
-                },
-                icon: 'blue'
+                }
             };
 
             this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
@@ -82,8 +82,14 @@ export class MapPage {
     fabPlusAction(validate?:boolean) {
         console.log('fabPlusAction');
         if (validate) {
-            this.draggableMarker.getPosition();
             this.draggableMarker.setVisible(false);
+            this.draggableMarker.getPosition().then((position: GoogleMapsLatLng) => {
+                this.modalCtrl.create(NewTripPage, {position: position}).present().then((r: any) => {
+                    console.log(r);
+                }).catch(e => {
+                    console.error(e);
+                });
+            });
         } else if (this.draggableMarker.isVisible()) {
             console.log('draggableMarker is visible');
             this.draggableMarker.setVisible(false);
