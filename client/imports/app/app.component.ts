@@ -38,7 +38,6 @@ export class MyApp {
             {title: 'Introduction', component: IntroductionPage},
             {title: 'Accueil', component: HomePage},
             {title: 'Nouveau trajet', component: NewTripPage},
-            {title: 'Éditer le profil', component: EditProfilePage},
             {title: 'Connexion', component: LoginPage}
         ];
     }
