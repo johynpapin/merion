@@ -1,17 +1,15 @@
 <ion-content>
-    <div data-tap-disabled="true">
-        <div #map id="map" style="height:100%;">
-            <ion-fab right bottom class="relou">
-                <button class="relou" ion-fab color="primary" (click)="fabPlusAction()">
-                    <ion-icon name="add"></ion-icon>
+    <div #map id="map" style="height:100%;">
+        <ion-fab right bottom class="relou">
+            <button class="relou" ion-fab color="primary" (click)="fabPlusAction()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+            <ion-fab-list side="left" class="relou">
+                <button class="relou" ion-fab (click)="fabPlusAction(true)">
+                    <ion-icon name="checkmark" color="primary"></ion-icon>
                 </button>
-                <ion-fab-list side="left" class="relou">
-                    <button class="relou" ion-fab (click)="fabPlusAction(true)">
-                        <ion-icon name="checkmark" color="primary"></ion-icon>
-                    </button>
-                </ion-fab-list>
-            </ion-fab>
-        </div>
+            </ion-fab-list>
+        </ion-fab>
     </div>
 </ion-content>
 
