@@ -42,7 +42,8 @@ export class MapPage {
                 visible: false,
                 styles : {
                     color: '#00d646'
-                }
+                },
+                icon: 'blue'
             };
 
             this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
