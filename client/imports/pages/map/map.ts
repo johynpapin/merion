@@ -42,6 +42,7 @@ export class MapPage {
                 position: new GoogleMapsLatLng(0, 0),
                 title: 'Réglage de la destination',
                 snippet: 'Pressez-moi longtemps pour me déplacer.',
+                icon: 'gray',
                 draggable: true,
                 visible: false
             }).then((marker: GoogleMapsMarker) => {
@@ -63,9 +64,6 @@ export class MapPage {
                 });
             });
 
-            this.map.setCompassEnabled(true);
-            this.map.setMyLocationEnabled(true);
-
             Meteor.users.find({}).observeChanges({
                 changed(id, fields) {
                 }
@@ -78,7 +76,7 @@ export class MapPage {
                     const want = trip.users.indexOf(Meteor.userId()) > -1;
                     map.addMarker({
                         position: new GoogleMapsLatLng(trip.destination.lat, trip.destination.lng),
-                        title: own ? 'Je participe !' : want ? 'Je suis intéressé.' : 'Déstination disponible',
+                        title: own ? 'Je participe !' : want ? 'Je suis intéressé.' : 'Destination disponible',
                         icon: own ? 'yellow' : want ? '#008ed6' : 'red',
                     }).then((marker: GoogleMapsMarker) => {
                         console.log('Marker created !');
