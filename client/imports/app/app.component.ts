@@ -39,7 +39,6 @@ export class MyApp {
             {title: 'Accueil', component: HomePage},
             {title: 'Amis', component: FriendsPage},
             {title: 'Profil', component: ProfilePage},
-            {title: 'Réglages', component: SettingsPage},
             {title: 'Chat', component: ChatPage},
             {title: 'Mes Trajets', component: TripsPage},
             {title: 'Nouveau trajet', component: NewTripPage},
