@@ -76,6 +76,7 @@ export class MapPage {
             marker.showInfoWindow();
         });
 
+
         /*
          let modal = this.modalCtrl.create(NewTripPage);
          modal.present();*/
