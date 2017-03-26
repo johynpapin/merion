@@ -1,28 +1,27 @@
 import {Component} from '@angular/core';
 import {ModalController} from 'ionic-angular';
-import {NewTripPage} from '../new-trip/new-trip';
-import template from './map.html';
 import {
     GoogleMap,
     GoogleMapsEvent,
     GoogleMapsLatLng,
-    CameraPosition,
-    GoogleMapsMapTypeId,
     Geolocation,
     Geoposition,
     GeolocationOptions,
     GoogleMapsMarker,
     GoogleMapsMarkerOptions
 } from 'ionic-native';
+import template from './map.html';
+
 @Component({
     selector: 'map-page',
     template
 })
 export class MapPage {
     map: GoogleMap;
+    draggableMarker: GoogleMapsMarker;
+    location: GoogleMapsLatLng;
 
     constructor(public modalCtrl: ModalController) {
-
     }
 
     ngAfterViewInit() {
@@ -35,16 +34,27 @@ export class MapPage {
         this.map = new GoogleMap(element);
 
         this.map.one(GoogleMapsEvent.MAP_READY).then(() => {
+            let markerOptions: GoogleMapsMarkerOptions = {
+                position: new GoogleMapsLatLng(0, 0),
+                title: 'Réglage de la destination',
+                snippet: 'Pressez-moi longtemps pour me déplacer.',
+                draggable: true,
+                visible: false
+            };
+
+            this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
+                this.draggableMarker = marker;
+            }).catch(e => {
+                console.log("Erreur : " + e);
+            });
+
             let geolocationOptions: GeolocationOptions = {
                 enableHighAccuracy: true
             };
 
             Geolocation.watchPosition(geolocationOptions).filter((p: any) => p.code === undefined).subscribe((position: Geoposition) => {
-                console.log(position);
-                Meteor.call('updateLocation', {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                }, (e) => {
+                this.location = new GoogleMapsLatLng(position.coords.latitude, position.coords.longitude);
+                Meteor.call('updateLocation', this.location, (e) => {
                     if (e) {
                         return console.error(e);
                     }
@@ -66,20 +76,15 @@ export class MapPage {
     }
 
     fabPlusAction() {
-        let markerOptions: GoogleMapsMarkerOptions = {
-            position: new GoogleMapsLatLng(Meteor.user().profile.location.lat, Meteor.user().profile.location.lng),
-            title: 'Réglage de la destination',
-            snippet: 'Pressez-moi longtemps pour me déplacer.',
-            draggable: true
-        };
-
-        console.log(JSON.stringify(markerOptions.position));
-
-        this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
-            this.map.animateCamera(markerOptions.position);
-            marker.showInfoWindow();
-        }).catch(e => {
-            console.log("Erreur : " + e);
-        });
+        console.log('fabPlusAction');
+        if (this.draggableMarker.isVisible()) {
+            console.log('draggableMarker is visible');
+            this.draggableMarker.setVisible(false);
+        } else {
+            console.log('draggableMarker is invisible');
+            this.draggableMarker.setPosition(this.location);
+            this.draggableMarker.setVisible(true);
+            this.draggableMarker.showInfoWindow();
+        }
     }
 }
