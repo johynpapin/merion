@@ -43,10 +43,7 @@ export class MapPage {
                 title: 'Réglage de la destination',
                 snippet: 'Pressez-moi longtemps pour me déplacer.',
                 draggable: true,
-                visible: false,
-                styles: {
-                    color: '#00d646'
-                }
+                visible: false
             }).then((marker: GoogleMapsMarker) => {
                 this.draggableMarker = marker;
             }).catch(e => {
