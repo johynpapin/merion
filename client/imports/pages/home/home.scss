@@ -1,3 +1,10 @@
 home-page {
-
+  .tabs-md .tab-button[aria-selected="true"] .tab-button-icon {
+    color: #ffffff; 
+  }
+  
+  .tabs-md .tab-button[aria-selected="true"] {
+    color: #ffffff; 
+    background-color: color($colors, primary);
+  }
 }
