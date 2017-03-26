@@ -32,9 +32,9 @@ export class MapPage {
     loadMap() {
         let element: HTMLElement = document.getElementById('map');
 
-        let map = new GoogleMap(element);
+        this.map = new GoogleMap(element);
 
-        map.one(GoogleMapsEvent.MAP_READY).then(() => {
+        this.map.one(GoogleMapsEvent.MAP_READY).then(() => {
             let geolocationOptions: GeolocationOptions = {
                 enableHighAccuracy: true
             };
@@ -52,12 +52,12 @@ export class MapPage {
                 });
             });
 
-            map.setCompassEnabled(true);
-            map.setMyLocationEnabled(true);
+            this.map.setCompassEnabled(true);
+            this.map.setMyLocationEnabled(true);
 
             Meteor.users.find({}).observeChanges({
                 changed(id, fields) {
-                    console.log(id, fields);
+                    console.log("Changement observé : " + id + "      " + fields);
                 }
             });
         }).catch(e => {
@@ -68,12 +68,17 @@ export class MapPage {
     fabPlusAction() {
         let markerOptions: GoogleMapsMarkerOptions = {
             position: new GoogleMapsLatLng(Meteor.user().profile.location.lat, Meteor.user().profile.location.lng),
-            title: 'Destination'
+            title: 'Destination',
+            draggable: true
         };
+
+        console.log(JSON.stringify(markerOptions.position));
 
         this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
             //this.map.moveCamera(markerOptions.position);
-            marker.showInfoWindow();
+            //marker.showInfoWindow();
+        }).catch(e => {
+            console.log("Erreur : " + e);
         });
 
         /*
