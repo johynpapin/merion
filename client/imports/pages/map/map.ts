@@ -82,9 +82,7 @@ export class MapPage {
                     map.addMarker({
                         position: new GoogleMapsLatLng(trip.destination.lat, trip.destination.lng),
                         title: own ? 'Je participe !' : want ? 'Je suis intéressé.' : 'Déstination disponible',
-                        styles: {
-                            color: '#00d646'
-                        }
+                        icon: own ? 'yellow' : want ? '#008ed6' : 'red',
                     }).then((marker: GoogleMapsMarker) => {
                         console.log('Marker created !');
                     }).catch(e => {
