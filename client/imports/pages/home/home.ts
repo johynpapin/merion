@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import template from './home.html';
-import {ProfilePage} from "../profile/profile";
+import {TripsPage} from "../profile/profile";
 import {FriendsPage} from "../friends/friends";
 import {MapPage} from "../map/map";
 import {Slides} from "ionic-angular";
@@ -10,7 +10,7 @@ import {Slides} from "ionic-angular";
     template
 })
 export class HomePage {
-	tabProfile: any = ProfilePage;
+	tabTrips: any = TripsPage;
 	tabMap: any = MapPage;
 	tabFriends: any = FriendsPage;
 

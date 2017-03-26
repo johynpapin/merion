@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import { ModalController } from 'ionic-angular';
-import {TripsPage} from '../trips/trips';
+import {NewTripPage} from '../new-trip/new-trip';
 import template from './map.html';
 import {
     GoogleMap,
@@ -64,7 +64,7 @@ export class MapPage {
     }
 
 	fabPlusAction() {
-		let modal = this.modalCtrl.create(TripsPage);
+		let modal = this.modalCtrl.create(NewTripPage);
 		modal.present();
 	}
 }
