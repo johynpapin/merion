@@ -1,8 +1,12 @@
 <ion-content>
     <div #map id="map" style="height:100%;">
-		<ion-fab bottom right>
-			<button ion-fab (click)="fabPlusAction()"><ion-icon name="add"></ion-icon></button>
-		</ion-fab>
+        <ion-fab right bottom>
+            <button ion-fab color="primary" (click)="fabPlusAction()"><ion-icon name="add"></ion-icon></button>
+            <ion-fab-list side="left">
+                <button ion-fab><ion-icon name="checkmark"></ion-icon></button>
+                <button ion-fab><ion-icon name="close"></ion-icon></button>
+            </ion-fab-list>
+        </ion-fab>
 	</div>
 </ion-content>
 
