@@ -11,6 +11,7 @@ import {AboutPage} from "../pages/settings/about/about";
 import {ChatPage} from "../pages/chat/chat";
 import {TripsPage} from "../pages/trips/trips";
 import {NewTripPage} from "../pages/new-trip/new-trip";
+import {TripEndPage} from "../pages/trip-end/trip-end";
 import {Meteor} from "meteor/meteor";
 import {MapPage} from "../pages/map/map";
 import {EditProfilePage} from "../pages/edit-profile/edit-profile";
@@ -38,6 +39,7 @@ export class MyApp {
             {title: 'Introduction', component: IntroductionPage},
             {title: 'Accueil', component: HomePage},
             {title: 'Nouveau trajet', component: NewTripPage},
+            {title: 'Fin de trajet', component: TripEndPage},
             {title: 'Connexion', component: LoginPage}
         ];
     }
