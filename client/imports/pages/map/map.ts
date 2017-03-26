@@ -57,7 +57,7 @@ export class MapPage {
 
             Meteor.users.find({}).observeChanges({
                 changed(id, fields) {
-                    console.log(id, fields);
+                    console.log("Changement observé :", id, fields);
                 }
             });
         }).catch(e => {
@@ -71,9 +71,13 @@ export class MapPage {
             title: 'Destination'
         };
 
+        console.log(JSON.stringify(markerOptions.position));
+
         this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
             //this.map.moveCamera(markerOptions.position);
             marker.showInfoWindow();
+        }).catch(e => {
+            console.log(e);
         });
 
         /*
