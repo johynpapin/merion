@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { ModalController } from 'ionic-angular';
+import {ModalController} from 'ionic-angular';
 import {NewTripPage} from '../new-trip/new-trip';
 import template from './map.html';
 import {
@@ -7,18 +7,20 @@ import {
     GoogleMapsEvent,
     GoogleMapsLatLng,
     CameraPosition,
-    GoogleMapsMarkerOptions,
-    GoogleMapsMarker,
     GoogleMapsMapTypeId,
     Geolocation,
     Geoposition,
-    GeolocationOptions
+    GeolocationOptions,
+    GoogleMapsMarker,
+    GoogleMapsMarkerOptions
 } from 'ionic-native';
 @Component({
     selector: 'map-page',
     template
 })
 export class MapPage {
+    map: GoogleMap;
+
     constructor(public modalCtrl: ModalController) {
 
     }
@@ -63,8 +65,19 @@ export class MapPage {
         });
     }
 
-	fabPlusAction() {
-		let modal = this.modalCtrl.create(NewTripPage);
-		modal.present();
-	}
+    fabPlusAction() {
+        let markerOptions: GoogleMapsMarkerOptions = {
+            position: new GoogleMapsLatLng(Meteor.user().profile.location.lat, Meteor.user().profile.location.lng),
+            title: 'Destination'
+        };
+
+        this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
+            this.map.moveCamera(markerOptions.position);
+            marker.showInfoWindow();
+        });
+
+        /*
+         let modal = this.modalCtrl.create(NewTripPage);
+         modal.present();*/
+    }
 }
