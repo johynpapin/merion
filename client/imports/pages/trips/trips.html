@@ -10,51 +10,45 @@
 </ion-header>
 
 <ion-content padding>
-  
-  <!-- <ion-list> -->
-   
-    <ion-list-header>
-      Trajets à venir
-    </ion-list-header>
-   
-    <ion-card>
-      <ion-item>
-        <h2>Pour arriver à (lieu) à (heure)</h2>
-        <p>Le (date)</p>
-      </ion-item>
+    <ion-toolbar>
+		<ion-title color="secondary">
+			Trajets à venir
+		</ion-title>
+    </ion-toolbar>
+	
+	<ion-card>
+		<img src="irc.png">
+		<ion-fab right top>
+			<button ion-fab><ion-icon name="pin"></ion-icon></button>
+		</ion-fab>
+		<ion-item>
+			<ion-icon name="bycicle" item-left large></ion-icon>
+			<h2>Boulangerie du centre</h2>
+			<p>3 place du centre, 22300 Lannion</p>
+		</ion-item>
+	</ion-card>
 
-      <img src="img/advance-card-bttf.png">
+	<ion-card>
+		<img src="p2.jpg">
+		<ion-fab right top>
+			<button ion-fab><ion-icon name="pin"></ion-icon></button>
+		</ion-fab>
+		<ion-item>
+			<ion-icon name="walk" item-left large></ion-icon>
+			<h2>Rencontre avec Bob</h2>
+			<p>42 rue Lourde, 22300 Lannion</p>
+		</ion-item>
+	</ion-card>
 
-      <ion-row>
-        <ion-col>
-          <button ion-button icon-left clear small>
-            <ion-icon name="walk"></ion-icon>
-            <div>Partir</div>
-          </button>
-        </ion-col>
-
-        <ion-col>
-        
-          <button ion-button icon-right clear small>
-            <ion-icon name="close-circle"></ion-icon>
-            <div>Annuler</div>
-          </button>
-        </ion-col>
-      </ion-row>
-
-    </ion-card>
- <!-- </ion-list> -->
-  
-  <ion-list>
-    
-    <ion-list-header>
-      Trajets effectués
-    </ion-list-header>
-    
-    <ion-item>Pour arriver à (lieu) à (heure) le (date)</ion-item>
-    <ion-item>Pour arriver à (lieu) à (heure) le (date)</ion-item>
-    <ion-item>Pour arriver à (lieu) à (heure) le (date)</ion-item>
-    
-  </ion-list>
-  
+	<ion-toolbar>
+		<ion-title color="secondary">
+			Trajets passés
+		</ion-title>
+	</ion-toolbar>
+	<ion-list>
+		<ion-item>Pour arriver à (lieu) à (heure) le (date)</ion-item>
+		<ion-item>Pour arriver à (lieu) à (heure) le (date)</ion-item>
+		<ion-item>Pour arriver à (lieu) à (heure) le (date)</ion-item>
+	</ion-list>
 </ion-content>
+
