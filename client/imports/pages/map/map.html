@@ -1,13 +1,10 @@
 <ion-content>
     <div #map id="map" style="height:100%;">
         <ion-fab right bottom class="relou">
-            <button class="relou" ion-fab color="primary" (click)="fabPlusAction()">
+            <button ion-fab color="primary" (click)="fabPlusAction()">
                 <ion-icon name="add"></ion-icon>
             </button>
-            <ion-fab-list side="down" class="relou">
-                <button class="relou" ion-fab (click)="fabPlusAction(true)">
-                    <ion-icon name="checkmark" color="primary"></ion-icon>
-                </button>
+            <ion-fab-list side="down">
             </ion-fab-list>
         </ion-fab>
     </div>
