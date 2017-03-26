@@ -1,9 +1,9 @@
 home-page {
-  .tabs-md #mapcolor .tab-button-icon {
+  .tabs-md .tab-button:nth-child(1) .tab-button-icon {
     color: #ffffff; 
   }
   
-  .tabs-md #mapcolor {
+  .tabs-md .tab-button:nth-child(1) {
     color: #ffffff; 
     background-color: color($colors, primary);
   }
