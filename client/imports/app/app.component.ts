@@ -7,6 +7,7 @@ import {IntroductionPage} from "../pages/introduction/introduction";
 import template from "./app.html";
 import {ProfilePage} from "../pages/profile/profile";
 import {SettingsPage} from "../pages/settings/settings";
+import {AboutPage} from "../pages/settings/about/about";
 import {ChatPage} from "../pages/chat/chat";
 import {TripsPage} from "../pages/trips/trips";
 import {NewTripPage} from "../pages/new-trip/new-trip";
@@ -39,6 +40,7 @@ export class MyApp {
             {title: 'Amis', component: FriendsPage},
             {title: 'Profil', component: ProfilePage},
             {title: 'Réglages', component: SettingsPage},
+            {title: 'À propos', component: AboutPage},
             {title: 'Chat', component: ChatPage},
             {title: 'Mes Trajets', component: TripsPage},
             {title: 'Nouveau trajet', component: NewTripPage},

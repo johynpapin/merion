@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
+import {AboutPage} from './about/about';
 import template from './settings.html';
 
 @Component({
@@ -6,7 +8,12 @@ import template from './settings.html';
     template
 })
 export class SettingsPage {
-    constructor() {
+    constructor(public navCtrl: NavController) {
 
     }
+
+	showAbout() {
+		//show about page
+		this.navCtrl.push(AboutPage);
+	}
 }
