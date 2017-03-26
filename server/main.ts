@@ -26,6 +26,7 @@ Meteor.methods({
                 matchpoint: null,
                 enddate: data.date,
                 question: null,
+                transport: data.transport,
                 answer: null,
                 owner: Meteor.userId(),
                 users: []

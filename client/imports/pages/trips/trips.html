@@ -23,9 +23,10 @@
             </sebm-google-map>
 		</div>
 		<ion-item>
-			<ion-icon name="bicycle" item-left large></ion-icon>
-			<h2>Boulangerie du centre</h2>
-			<p>3 place du centre, 22300 Lannion</p>
+			<ion-icon *ngIf="trip.transport === 'bike'" name="bicycle" item-left large></ion-icon>
+            <ion-icon *ngIf="trip.transport !== 'bike'" name="walk" item-left large></ion-icon>
+            <h2>À remplir à remplir à remplir</h2>
+			<p>Lorem ipsum dolor sit amet...</p>
 		</ion-item>
 		<ion-item>
 			<span item-left>18 min</span>

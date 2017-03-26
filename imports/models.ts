@@ -8,6 +8,7 @@ export interface Trip {
     matchpoint: Location;
     enddate: Date;
     question: string;
+    transport: string;
     answer: string;
     owner: string;
     users: string[];
