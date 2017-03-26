@@ -82,9 +82,6 @@ export class MapPage {
                     map.addMarker({
                         position: new GoogleMapsLatLng(0, 0),
                         title: own ? 'Je participe !' : want ? 'Je suis intéressé.' : 'Déstination disponible',
-                        snippet: 'Pressez-moi longtemps pour me déplacer.',
-                        draggable: true,
-                        visible: false,
                         styles: {
                             color: '#00d646'
                         }
