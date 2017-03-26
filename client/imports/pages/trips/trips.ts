@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import template from './trips.html';
 
 @Component({
-	selector: trips-page,
+	selector: 'trips-page',
     template
 })
 export class TripsPage {
