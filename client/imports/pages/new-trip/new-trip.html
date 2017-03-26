@@ -5,13 +5,13 @@
 </ion-header>
 
 <ion-content padding>
-    <h2>Informations supplémentaires</h2>
-    <p>Afin de compléter votre proposition de trajet, veuillez remplir ce petit formulaire.</p>
-
     <ion-list>
         <ion-item>
-            <ion-label stacked>Mode de transport</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label>Mode de transport</ion-label>
+            <ion-select [(ngModel)]="gaming">
+                <ion-option value="walk">À pied</ion-option>
+                <ion-option value="bike">À vélo</ion-option>
+            </ion-select>
         </ion-item>
 
         <ion-item>
