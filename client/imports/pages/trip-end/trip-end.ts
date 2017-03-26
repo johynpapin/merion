@@ -8,7 +8,7 @@ import {HomePage} from '../home/home';
     template
 })
 export class TripEndPage {
-    constructor(private params: NavParams, private viewCtrl: ViewController) {
+    constructor(private params: NavParams, private viewCtrl: ViewController, public navCtrl: NavController) {
 
     }
 
