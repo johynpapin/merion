@@ -75,9 +75,12 @@ export class MapPage {
         });
     }
 
-    fabPlusAction() {
+    fabPlusAction(validate?:boolean) {
         console.log('fabPlusAction');
-        if (this.draggableMarker.isVisible()) {
+        if (validate) {
+            this.draggableMarker.getPosition();
+            this.draggableMarker.setVisible(false);
+        } else if (this.draggableMarker.isVisible()) {
             console.log('draggableMarker is visible');
             this.draggableMarker.setVisible(false);
         } else {
