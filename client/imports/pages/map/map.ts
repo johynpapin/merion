@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ModalController} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import {
     GoogleMap,
     GoogleMapsEvent,
@@ -22,7 +22,7 @@ export class MapPage {
     draggableMarker: GoogleMapsMarker;
     location: GoogleMapsLatLng;
 
-    constructor(public modalCtrl: ModalController) {
+    constructor(public navCtrl: NavController) {
     }
 
     ngAfterViewInit() {
@@ -48,20 +48,6 @@ export class MapPage {
 
             this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
                 this.draggableMarker = marker;
-                this.draggableMarker.addEventListener(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-                   console.log("AETNRTENRS");
-                });
-                this.draggableMarker.addEventListener('dblclick').subscribe(() => {
-                    console.log('WOAW');
-                    this.draggableMarker.setVisible(false);
-                    this.draggableMarker.getPosition().then((position: GoogleMapsLatLng) => {
-                        let newTripModal = this.modalCtrl.create(NewTripPage, {position: position});
-                        newTripModal.onDidDismiss(data => {
-                            console.log(data);
-                        });
-                        newTripModal.present();
-                    });
-                });
             }).catch(e => {
                 console.log("Erreur : " + e);
             });
@@ -94,6 +80,9 @@ export class MapPage {
     fabPlusAction() {
         if (this.draggableMarker.isVisible()) {
             this.draggableMarker.setVisible(false);
+            this.draggableMarker.getPosition().then((position: GoogleMapsLatLng) => {
+                this.navCtrl.push(NewTripPage, {position: position});
+            });
         } else {
             this.map.animateCamera(this.location);
             this.draggableMarker.setPosition(this.location);
