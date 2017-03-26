@@ -37,10 +37,7 @@ export class MyApp {
         this.pages = [
             {title: 'Introduction', component: IntroductionPage},
             {title: 'Accueil', component: HomePage},
-            {title: 'Amis', component: FriendsPage},
             {title: 'Profil', component: ProfilePage},
-            {title: 'Chat', component: ChatPage},
-            {title: 'Mes Trajets', component: TripsPage},
             {title: 'Nouveau trajet', component: NewTripPage},
             {title: 'Éditer le profil', component: EditProfilePage},
             {title: 'Connexion', component: LoginPage}
