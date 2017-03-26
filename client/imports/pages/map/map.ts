@@ -68,7 +68,8 @@ export class MapPage {
     fabPlusAction() {
         let markerOptions: GoogleMapsMarkerOptions = {
             position: new GoogleMapsLatLng(Meteor.user().profile.location.lat, Meteor.user().profile.location.lng),
-            title: 'Destination',
+            title: 'Régagle de la destination',
+            snippet: 'Pressez-moi longtemps pour me déplacer.',
             draggable: true
         };
 
@@ -76,7 +77,7 @@ export class MapPage {
 
         this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
             //this.map.moveCamera(markerOptions.position);
-            //marker.showInfoWindow();
+            marker.showInfoWindow();
         }).catch(e => {
             console.log("Erreur : " + e);
         });
