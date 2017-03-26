@@ -6,6 +6,7 @@ import {FriendsPage} from "../pages/friends/friends";
 import {MyApp} from './app.component';
 import {ProfilePage} from "../pages/profile/profile";
 import {SettingsPage} from "../pages/settings/settings";
+import {AboutPage} from "../pages/settings/about/about";
 import {ChatPage} from "../pages/chat/chat";
 import {RegisterPage} from "../pages/register/register";
 import {TripsPage} from "../pages/trips/trips";
@@ -23,6 +24,7 @@ import {LoginPage} from "../pages/login/login";
         FriendsPage,
         ProfilePage,
         SettingsPage,
+		AboutPage,
         ChatPage,
         RegisterPage,
         TripsPage,
@@ -45,6 +47,7 @@ import {LoginPage} from "../pages/login/login";
         FriendsPage,
         ProfilePage,
         SettingsPage,
+		AboutPage,
         ChatPage,
         RegisterPage,
         TripsPage,
