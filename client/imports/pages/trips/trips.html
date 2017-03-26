@@ -5,36 +5,51 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
+  
+  <ion-list>
+   
+    <ion-list-header>
+      Trajets à venir
+    </ion-list-header>
+   
+    <ion-card>
+      <ion-item>
+        <h2>Pour arriver à (lieu) à (heure)</h2>
+        <p>Le (date)</p>
+      </ion-item>
 
-    <ion-item>
-      <h2>Aller à (lieu) à (heure)</h2>
-      <p>Le (date)</p>
-    </ion-item>
+      <img src="img/advance-card-bttf.png">
 
-    <img src="img/advance-card-bttf.png">
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="walk"></ion-icon>
+            <div>Partir</div>
+          </button>
+        </ion-col>
 
-  <ion-row>
-    <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="walk"></ion-icon>
-        <div>Partir</div>
-      </button>
-    </ion-col>
-    <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="information-circle"></ion-icon>
-        <div>Informations</div>
-      </button>
-    </ion-col>
-    <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="close-circle"></ion-icon>
-        <div>Annuler</div>
-      </button>
-    </ion-col>
-  </ion-row>
+        <ion-col>
+        
+          <button ion-button icon-left clear small>
+            <ion-icon name="close-circle"></ion-icon>
+            <div>Annuler</div>
+          </button>
+        </ion-col>
+      </ion-row>
 
-</ion-card>
-
+    </ion-card>
+  </ion-list>
+  
+  <ion-list>
+    
+    <ion-list-header>
+      Trajets effectués
+    </ion-list-header>
+    
+    <ion-item>Pour arriver à (lieu) à (heure) le (date)</ion-item>
+    <ion-item>Pour arriver à (lieu) à (heure) le (date)</ion-item>
+    <ion-item>Pour arriver à (lieu) à (heure) le (date)</ion-item>
+    
+  </ion-list>
+  
 </ion-content>
