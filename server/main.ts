@@ -13,7 +13,6 @@ Meteor.methods({
                     'profile.location': location
                 }
             });
-
         } else {
             console.log('A disconnected user tried to update location without being connected.');
         }
