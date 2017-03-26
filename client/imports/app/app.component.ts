@@ -40,11 +40,9 @@ export class MyApp {
             {title: 'Amis', component: FriendsPage},
             {title: 'Profil', component: ProfilePage},
             {title: 'Réglages', component: SettingsPage},
-            {title: 'À propos', component: AboutPage},
             {title: 'Chat', component: ChatPage},
             {title: 'Mes Trajets', component: TripsPage},
             {title: 'Nouveau trajet', component: NewTripPage},
-            {title: 'Carte', component: MapPage},
             {title: 'Éditer le profil', component: EditProfilePage},
             {title: 'Connexion', component: LoginPage}
         ];

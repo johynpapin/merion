@@ -12,16 +12,18 @@
 <ion-content padding>
     <ion-list>
         <button ion-item (click)="presentActionSheet()">
-            <ion-icon name="disc" isActive="true" item-left></ion-icon>
+            <ion-icon name="woman" isActive="true" item-left></ion-icon>
             Alice
             <ion-icon name="chatboxes" item-right></ion-icon>
         </button>
 
-        <ion-item>
-            <ion-icon name="disc" isActive="false" item-left></ion-icon>
-            Bob
-            <ion-icon name="chatboxes" item-right></ion-icon>
-        </ion-item>
+        <button ion-item (click)="presentActionSheet()">
+			<ion-item>
+				<ion-icon name="man" isActive="false" item-left></ion-icon>
+				Bob
+				<ion-icon name="chatboxes" item-right></ion-icon>
+			</ion-item>
+        </button>
     </ion-list>
 </ion-content>
 
