@@ -5,8 +5,6 @@
 </ion-header>
 
 <ion-content padding>
-	<!--<ion-slides pager color="primary">
-		<ion-slide>-->
 			<form [formGroup]="registerForm" (ngSubmit)="register()">
 				<ion-item>
 					<ion-label stacked>Pseudonyme</ion-label>
@@ -23,26 +21,6 @@
 					<ion-input type="text" formControlName="lastname"></ion-input>
 				</ion-item>
 
-				<!--<ion-item>
-					<ion-label stacked>Date de naissance</ion-label>
-					<ion-input type="date"></ion-input>
-				</ion-item>
-
-				<ion-item>
-					<ion-label stacked>Sexe</ion-label>
-					<ion-select [(ngModel)]="gender">
-						<ion-option value="m">Masculin</ion-option>
-						<ion-option value="f">Féminin</ion-option>
-					</ion-select>
-				</ion-item>
-
-				<div padding>
-					<button ion-button color="primary" block>Suivant</button>
-				</div>
-			</ion-list>
-		</ion-slide>
-		<ion-slide>
-			<ion-list>-->
 				<ion-item>
 					<ion-label stacked>E-mail</ion-label>
 					<ion-input type="email" value="" formControlName="email"></ion-input>
@@ -62,12 +40,9 @@
 					<button ion-button color="primary" block type="submit" [disabled]="!registerForm.valid">S’enregistrer</button>
 				</div>
 				
-				<ion-label>ou</ion-label>	
+				<ion-label>Vous avez déjà un compte ?</ion-label>	
 				<div padding>
-					<button ion-button color="secondary" block type="submit">Se connecter</button>
+					<button ion-button color="secondary" block (click)="login()">Se connecter</button>
 				</div>
-				
 			</form>
-		<!--</ion-slide>
-	<ion-slides>-->
 </ion-content>

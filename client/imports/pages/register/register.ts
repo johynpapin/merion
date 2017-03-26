@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import template from './register.html';
 import {NavController, ToastController, LoadingController} from "ionic-angular";
 import {HomePage} from "../home/home";
+import {LoginPage} from '../login/login';
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
 import {Accounts} from "meteor/accounts-base";
 
@@ -59,4 +60,8 @@ export class RegisterPage {
             }
         });
     }
+
+	login() {
+		this.navCtrl.push(LoginPage);
+	}
 }
