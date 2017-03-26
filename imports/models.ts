@@ -9,5 +9,6 @@ export interface Trip {
     enddate: Date;
     question: string;
     answer: string;
-    users: string[]
+    owner: string;
+    users: string[];
 }

@@ -12,6 +12,8 @@ import {
 } from 'ionic-native';
 import template from './map.html';
 import {NewTripPage} from "../new-trip/new-trip";
+import {Trips} from "../../../../imports/collections";
+import {Trip} from "../../../../imports/models";
 
 @Component({
     selector: 'map-page',
@@ -32,10 +34,11 @@ export class MapPage {
     loadMap() {
         let element: HTMLElement = document.getElementById('map');
 
-        this.map = new GoogleMap(element);
+        let map = this.map = new GoogleMap(element);
 
         this.map.one(GoogleMapsEvent.MAP_READY).then(() => {
-            let markerOptions: GoogleMapsMarkerOptions = {
+
+            this.map.addMarker({
                 position: new GoogleMapsLatLng(0, 0),
                 title: 'Réglage de la destination',
                 snippet: 'Pressez-moi longtemps pour me déplacer.',
@@ -44,9 +47,7 @@ export class MapPage {
                 styles: {
                     color: '#00d646'
                 }
-            };
-
-            this.map.addMarker(markerOptions).then((marker: GoogleMapsMarker) => {
+            }).then((marker: GoogleMapsMarker) => {
                 this.draggableMarker = marker;
             }).catch(e => {
                 console.log("Erreur : " + e);
@@ -70,6 +71,28 @@ export class MapPage {
 
             Meteor.users.find({}).observeChanges({
                 changed(id, fields) {
+                }
+            });
+
+            Trips.find({}).observe({
+                added(trip: Trip) {
+                    console.log('Pouf pouf pouf');
+                    const own = trip.owner === Meteor.userId();
+                    const want = trip.users.indexOf(Meteor.userId()) > -1;
+                    map.addMarker({
+                        position: new GoogleMapsLatLng(0, 0),
+                        title: own ? 'Je participe !' : want ? 'Je suis intéressé.' : 'Déstination disponible',
+                        snippet: 'Pressez-moi longtemps pour me déplacer.',
+                        draggable: true,
+                        visible: false,
+                        styles: {
+                            color: '#00d646'
+                        }
+                    }).then((marker: GoogleMapsMarker) => {
+                        console.log('Marker created !');
+                    }).catch(e => {
+                        console.log("Erreur : " + e);
+                    });
                 }
             });
         }).catch(e => {

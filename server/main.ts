@@ -27,9 +27,8 @@ Meteor.methods({
                 enddate: data.date,
                 question: null,
                 answer: null,
-                users: [
-                    Meteor.userId()
-                ]
+                owner: Meteor.userId(),
+                users: []
             };
             Trips.insert(trip);
         } else {
