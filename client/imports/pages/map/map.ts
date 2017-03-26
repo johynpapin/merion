@@ -82,6 +82,11 @@ export class MapPage {
     fabPlusAction(validate?:boolean) {
         console.log('fabPlusAction');
         if (validate) {
+            console.log();
+            console.log();
+            console.log("=================== ICI ====================");
+            console.log();
+            console.log();
             this.draggableMarker.setVisible(false);
             this.draggableMarker.getPosition().then((position: GoogleMapsLatLng) => {
                 let newTripModal = this.modalCtrl.create(NewTripPage, {position: position});
