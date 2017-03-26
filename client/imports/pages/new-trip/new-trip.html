@@ -5,18 +5,18 @@
 </ion-header>
 
 <ion-content padding>
-    <h2>Informations supplémentaires</h2>
-    <p>Afin de compléter votre proposition de trajet, veuillez remplir ce petit formulaire.</p>
-
     <ion-list>
         <ion-item>
-            <ion-label stacked>Mode de transport</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label>Mode de transport</ion-label>
+            <ion-select>
+                <ion-option value="walk">À pied</ion-option>
+                <ion-option value="bike">À vélo</ion-option>
+            </ion-select>
         </ion-item>
 
         <ion-item>
-            <ion-label stacked>Heure/Date départ souhaité</ion-label>
-            <ion-input type="date"></ion-input>
+            <ion-label>Date de départ</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY HH:mm"></ion-datetime>
         </ion-item>
     </ion-list>
     <button ion-button block>Enregistrer le trajet</button>
