@@ -20,7 +20,7 @@
 
         <ion-item>
             <ion-label>Date d’arrivée</ion-label>
-			<ion-datetime displayFormat="DD/MM/YYYY HH:mm" [(ngModel)]="date"></ion-datetime>
+			<ion-datetime displayFormat="DD/MM/YYYY HH:mm" formControlName="date"></ion-datetime>
         </ion-item>
         <button ion-button block color="primary" type="submit" [disabled]="!tripForm.valid">Enregistrer le trajet</button>
     </form>
